@@ -10,7 +10,16 @@ BeerProto is an alternative to formats like BeerXML and BeerJSON for describing 
 pip install git+https://github.com/beerproto/beerproto-python.git
 ```
 
-Runtime dependencies (`protobuf`, `protovalidate`) are installed automatically.
+`protobuf` is installed automatically. The `buf.validate` schema types the messages
+depend on are vendored into the package, so importing and using the messages needs
+nothing else.
+
+To enforce the schema's `protovalidate` constraints at runtime, install the optional
+`validation` extra:
+
+```bash
+pip install "beerproto[validation] @ git+https://github.com/beerproto/beerproto-python.git"
+```
 
 ## Usage
 
@@ -33,7 +42,8 @@ parsed = recipe_pb2.RecipeType()
 parsed.ParseFromString(data)
 ```
 
-The schema declares `protovalidate` constraints (e.g. `id` must be a UUID). To enforce them at runtime:
+The schema declares `protovalidate` constraints (e.g. `id` must be a UUID). To enforce
+them at runtime, install the `validation` extra and call:
 
 ```python
 import protovalidate
@@ -41,16 +51,22 @@ import protovalidate
 protovalidate.validate(recipe)  # raises ValidationError on invalid data
 ```
 
+> **Note:** `protovalidate` is tightly coupled to a specific `buf.validate` schema
+> version. The vendored `buf.validate` types come from beerproto's `buf.lock`; if your
+> installed `protovalidate` expects a newer schema, validation may error even though
+> the messages themselves serialize fine. Keep beerproto's `buf.lock` in step with the
+> `protovalidate` release you target.
+
 ## Available modules
 
 The `beerproto.v1` package includes `recipe`, `beer`, `style`, `hop`, `fermentable`, `culture`, `misc`, `water`, `mash`, `boil`, `fermentation`, `equipment`, `packaging`, `timing`, `srm`, `measureable_units`, and their step/graphic/vessel variants. Each ships with a `.pyi` stub for type checking.
 
 ## How this library is generated
 
-This repository is generated, not hand-written. A [GitHub Actions workflow](.github/workflows/main.yml) checks out the [beerproto](https://github.com/beerproto/beerproto) schema, runs [Buf](https://buf.build/) with the Python template, moves the generated code into the `beerproto/` package, and pushes it back. To reproduce locally:
+This repository is generated, not hand-written. A [GitHub Actions workflow](.github/workflows/main.yml) checks out the [beerproto](https://github.com/beerproto/beerproto) schema and runs [Buf](https://buf.build/) with the Python template and `--include-imports`, so the imported `buf.validate` types are generated alongside the beerproto messages. The generated `beerproto/` and `buf/` trees are moved into this repo and pushed back. To reproduce locally:
 
 ```bash
-buf generate beerprotoapis --template=buf.gen.python.yaml
+buf generate beerprotoapis --template=buf.gen.python.yaml --include-imports
 ```
 
 ## License

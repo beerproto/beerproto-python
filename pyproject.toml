@@ -11,15 +11,22 @@ license = { file = "LICENSE" }
 requires-python = ">=3.8"
 dependencies = [
     "protobuf>=5.26",
-    "protovalidate>=0.3",
 ]
+
+# Runtime validation of protovalidate constraints is optional. The vendored
+# buf.validate types are only message descriptors; installing protovalidate
+# lets you call protovalidate.validate(). Its version must match the
+# buf.validate schema vendored here (from beerproto's buf.lock).
+[project.optional-dependencies]
+validation = ["protovalidate"]
 
 [project.urls]
 Homepage = "https://github.com/beerproto/beerproto-python"
 Source = "https://github.com/beerproto/beerproto-python"
 
 [tool.setuptools.packages.find]
-include = ["beerproto*"]
+include = ["beerproto*", "buf*"]
 
 [tool.setuptools.package-data]
 "beerproto.v1" = ["*.pyi"]
+"buf.validate" = ["*.pyi"]

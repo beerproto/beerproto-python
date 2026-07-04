@@ -22,13 +22,14 @@ jobs:
         with:
           setup_only: true
       - name: Buf generate
-        run: buf generate beerprotoapis --template=buf.gen.python.yaml
+        run: buf generate beerprotoapis --template=buf.gen.python.yaml --include-imports
         working-directory: ./proto
       - name: Move beer files
         run: |
-          rm -rf ./beerproto
+          rm -rf ./beerproto ./buf
           mv ./proto/gen/beerproto ./beerproto
-          touch ./beerproto/__init__.py ./beerproto/v1/__init__.py
+          mv ./proto/gen/buf ./buf
+          touch ./beerproto/__init__.py ./beerproto/v1/__init__.py ./buf/__init__.py ./buf/validate/__init__.py
       - run: rm -R ./proto
       - name: Set package version
         run: sed -i 's/^version = .*/version = "1.${{ github.run_number }}.0"/' pyproject.toml
