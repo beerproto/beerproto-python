@@ -28,7 +28,10 @@ jobs:
         run: |
           rm -rf ./beerproto
           mv ./proto/gen/beerproto ./beerproto
+          touch ./beerproto/__init__.py ./beerproto/v1/__init__.py
       - run: rm -R ./proto
+      - name: Set package version
+        run: sed -i 's/^version = .*/version = "1.${{ github.run_number }}.0"/' pyproject.toml
       - name: Push
         uses: actions-x/commit@v6
         with:
