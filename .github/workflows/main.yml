@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  Proto:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Checkout beerproto
+        uses: actions/checkout@v2
+        with:
+          repository: beerproto/beerproto
+          path: proto
+      - uses: bufbuild/buf-action@v1
+        with:
+          setup_only: true
+      - name: Buf generate
+        run: buf generate beerprotoapis --template=buf.gen.python.yaml
+        working-directory: ./proto
+      - name: Move beer files
+        run: |
+          rm -rf ./beerproto
+          mv ./proto/gen/beerproto ./beerproto
+      - run: rm -R ./proto
+      - name: Push
+        uses: actions-x/commit@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: "main"
+      - name: Capture pushed commit
+        id: pushed
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v1.${{ github.run_number }}.0
+          commitish: ${{ steps.pushed.outputs.sha }}
+          body: CI Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+          release_name: v1.${{ github.run_number }}.0
