@@ -35,6 +35,18 @@ class MassUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     MASS_UNIT_LB: _ClassVar[MassUnit]
     MASS_UNIT_OZ: _ClassVar[MassUnit]
 
+class CellCountUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    CELL_COUNT_UNIT_UNSPECIFIED: _ClassVar[CellCountUnit]
+    CELL_COUNT_UNIT_CELLS: _ClassVar[CellCountUnit]
+    CELL_COUNT_UNIT_MILLION: _ClassVar[CellCountUnit]
+    CELL_COUNT_UNIT_BILLION: _ClassVar[CellCountUnit]
+
+class PitchRateUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    PITCH_RATE_UNIT_UNSPECIFIED: _ClassVar[PitchRateUnit]
+    PITCH_RATE_UNIT_MILLION_CELLS_PER_ML_PER_PLATO: _ClassVar[PitchRateUnit]
+
 class DiastaticPowerUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     DIASTATIC_POWER_UNIT_UNSPECIFIED: _ClassVar[DiastaticPowerUnit]
@@ -193,6 +205,12 @@ MASS_UNIT_G: MassUnit
 MASS_UNIT_KG: MassUnit
 MASS_UNIT_LB: MassUnit
 MASS_UNIT_OZ: MassUnit
+CELL_COUNT_UNIT_UNSPECIFIED: CellCountUnit
+CELL_COUNT_UNIT_CELLS: CellCountUnit
+CELL_COUNT_UNIT_MILLION: CellCountUnit
+CELL_COUNT_UNIT_BILLION: CellCountUnit
+PITCH_RATE_UNIT_UNSPECIFIED: PitchRateUnit
+PITCH_RATE_UNIT_MILLION_CELLS_PER_ML_PER_PLATO: PitchRateUnit
 DIASTATIC_POWER_UNIT_UNSPECIFIED: DiastaticPowerUnit
 DIASTATIC_POWER_UNIT_LINTNER: DiastaticPowerUnit
 DIASTATIC_POWER_UNIT_WK: DiastaticPowerUnit
@@ -292,6 +310,22 @@ class MassType(_message.Message):
     value: float
     unit: MassUnit
     def __init__(self, value: _Optional[float] = ..., unit: _Optional[_Union[MassUnit, str]] = ...) -> None: ...
+
+class CellCountType(_message.Message):
+    __slots__ = ("value", "unit")
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    UNIT_FIELD_NUMBER: _ClassVar[int]
+    value: float
+    unit: CellCountUnit
+    def __init__(self, value: _Optional[float] = ..., unit: _Optional[_Union[CellCountUnit, str]] = ...) -> None: ...
+
+class PitchRateType(_message.Message):
+    __slots__ = ("value", "unit")
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    UNIT_FIELD_NUMBER: _ClassVar[int]
+    value: float
+    unit: PitchRateUnit
+    def __init__(self, value: _Optional[float] = ..., unit: _Optional[_Union[PitchRateUnit, str]] = ...) -> None: ...
 
 class DiastaticPowerType(_message.Message):
     __slots__ = ("value", "unit")
