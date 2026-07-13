@@ -83,18 +83,20 @@ CULTURE_BASE_TYPE_MOLD: CultureBaseType
 CULTURE_BASE_TYPE_OTHER: CultureBaseType
 
 class CultureBase(_message.Message):
-    __slots__ = ("name", "type", "form", "producer", "product_id")
+    __slots__ = ("name", "type", "form", "producer", "product_id", "glucoamylase")
     NAME_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     FORM_FIELD_NUMBER: _ClassVar[int]
     PRODUCER_FIELD_NUMBER: _ClassVar[int]
     PRODUCT_ID_FIELD_NUMBER: _ClassVar[int]
+    GLUCOAMYLASE_FIELD_NUMBER: _ClassVar[int]
     name: str
     type: CultureBaseType
     form: CultureBaseForm
     producer: str
     product_id: str
-    def __init__(self, name: _Optional[str] = ..., type: _Optional[_Union[CultureBaseType, str]] = ..., form: _Optional[_Union[CultureBaseForm, str]] = ..., producer: _Optional[str] = ..., product_id: _Optional[str] = ...) -> None: ...
+    glucoamylase: bool
+    def __init__(self, name: _Optional[str] = ..., type: _Optional[_Union[CultureBaseType, str]] = ..., form: _Optional[_Union[CultureBaseForm, str]] = ..., producer: _Optional[str] = ..., product_id: _Optional[str] = ..., glucoamylase: _Optional[bool] = ...) -> None: ...
 
 class CultureInformation(_message.Message):
     __slots__ = ("base", "id", "temperature_range", "notes", "best_for", "inventory", "alcohol_tolerance", "glucoamylase", "type", "flocculation", "attenuation_range", "max_reuse", "pof", "zymocide")
