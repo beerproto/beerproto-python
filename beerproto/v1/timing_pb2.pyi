@@ -14,11 +14,15 @@ class UseType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     USE_TYPE_ADD_TO_BOIL: _ClassVar[UseType]
     USE_TYPE_ADD_TO_FERMENTATION: _ClassVar[UseType]
     USE_TYPE_ADD_TO_PACKAGE: _ClassVar[UseType]
+    USE_TYPE_ADD_TO_WHIRLPOOL: _ClassVar[UseType]
+    USE_TYPE_ADD_TO_FIRST_WORT: _ClassVar[UseType]
 USE_TYPE_UNSPECIFIED: UseType
 USE_TYPE_ADD_TO_MASH: UseType
 USE_TYPE_ADD_TO_BOIL: UseType
 USE_TYPE_ADD_TO_FERMENTATION: UseType
 USE_TYPE_ADD_TO_PACKAGE: UseType
+USE_TYPE_ADD_TO_WHIRLPOOL: UseType
+USE_TYPE_ADD_TO_FIRST_WORT: UseType
 
 class TimingType(_message.Message):
     __slots__ = ("time", "duration", "continuous", "specific_gravity", "ph", "step", "use")

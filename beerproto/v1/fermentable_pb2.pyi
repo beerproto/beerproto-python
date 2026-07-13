@@ -50,7 +50,7 @@ GRAIN_GROUP_SMOKED: GrainGroup
 GRAIN_GROUP_ADJUNCT: GrainGroup
 
 class FermentableBase(_message.Message):
-    __slots__ = ("type", "origin", "grain_group", "color", "name", "producer", "product_id")
+    __slots__ = ("type", "origin", "grain_group", "color", "name", "producer", "product_id", "diastatic_power")
     TYPE_FIELD_NUMBER: _ClassVar[int]
     ORIGIN_FIELD_NUMBER: _ClassVar[int]
     GRAIN_GROUP_FIELD_NUMBER: _ClassVar[int]
@@ -59,6 +59,7 @@ class FermentableBase(_message.Message):
     NAME_FIELD_NUMBER: _ClassVar[int]
     PRODUCER_FIELD_NUMBER: _ClassVar[int]
     PRODUCT_ID_FIELD_NUMBER: _ClassVar[int]
+    DIASTATIC_POWER_FIELD_NUMBER: _ClassVar[int]
     type: FermentableBaseType
     origin: str
     grain_group: GrainGroup
@@ -66,7 +67,8 @@ class FermentableBase(_message.Message):
     name: str
     producer: str
     product_id: str
-    def __init__(self, type: _Optional[_Union[FermentableBaseType, str]] = ..., origin: _Optional[str] = ..., grain_group: _Optional[_Union[GrainGroup, str]] = ..., color: _Optional[_Union[_measureable_units_pb2.ColorType, _Mapping]] = ..., name: _Optional[str] = ..., producer: _Optional[str] = ..., product_id: _Optional[str] = ..., **kwargs) -> None: ...
+    diastatic_power: _measureable_units_pb2.DiastaticPowerType
+    def __init__(self, type: _Optional[_Union[FermentableBaseType, str]] = ..., origin: _Optional[str] = ..., grain_group: _Optional[_Union[GrainGroup, str]] = ..., color: _Optional[_Union[_measureable_units_pb2.ColorType, _Mapping]] = ..., name: _Optional[str] = ..., producer: _Optional[str] = ..., product_id: _Optional[str] = ..., diastatic_power: _Optional[_Union[_measureable_units_pb2.DiastaticPowerType, _Mapping]] = ..., **kwargs) -> None: ...
 
 class FermentableType(_message.Message):
     __slots__ = ("base", "id", "max_in_batch", "recommend_mash", "protein", "alpha_amylase", "diastatic_power", "moisture", "inventory", "kolbach_index", "glassy", "plump", "half", "mealy", "thru", "friability", "di_ph", "viscosity", "dms_p", "fan", "fermentability", "beta_glucan", "notes")

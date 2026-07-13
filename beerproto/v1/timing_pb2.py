@@ -25,7 +25,7 @@ _sym_db = _symbol_database.Default()
 from beerproto.v1 import measureable_units_pb2 as beerproto_dot_v1_dot_measureable__units__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19\x62\x65\x65rproto/v1/timing.proto\x12\x0c\x62\x65\x65rproto.v1\x1a$beerproto/v1/measureable_units.proto\"\xba\x02\n\nTimingType\x12*\n\x04time\x18\x01 \x01(\x0b\x32\x16.beerproto.v1.TimeTypeR\x04time\x12\x32\n\x08\x64uration\x18\x02 \x01(\x0b\x32\x16.beerproto.v1.TimeTypeR\x08\x64uration\x12\x1e\n\ncontinuous\x18\x03 \x01(\x08R\ncontinuous\x12\x44\n\x10specific_gravity\x18\x04 \x01(\x0b\x32\x19.beerproto.v1.GravityTypeR\x0fspecificGravity\x12)\n\x02ph\x18\x05 \x01(\x0b\x32\x19.beerproto.v1.AcidityTypeR\x02ph\x12\x12\n\x04step\x18\x06 \x01(\x05R\x04step\x12\'\n\x03use\x18\x07 \x01(\x0e\x32\x15.beerproto.v1.UseTypeR\x03use*\x96\x01\n\x07UseType\x12\x18\n\x14USE_TYPE_UNSPECIFIED\x10\x00\x12\x18\n\x14USE_TYPE_ADD_TO_MASH\x10\x01\x12\x18\n\x14USE_TYPE_ADD_TO_BOIL\x10\x02\x12 \n\x1cUSE_TYPE_ADD_TO_FERMENTATION\x10\x03\x12\x1b\n\x17USE_TYPE_ADD_TO_PACKAGE\x10\x04\x42p\n\x10\x63om.beerproto.v1B\x0bTimingProtoP\x01\xa2\x02\x03\x42XX\xaa\x02\x0c\x42\x65\x65rproto.V1\xca\x02\x0c\x42\x65\x65rproto\\V1\xe2\x02\x18\x42\x65\x65rproto\\V1\\GPBMetadata\xea\x02\rBeerproto::V1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19\x62\x65\x65rproto/v1/timing.proto\x12\x0c\x62\x65\x65rproto.v1\x1a$beerproto/v1/measureable_units.proto\"\xba\x02\n\nTimingType\x12*\n\x04time\x18\x01 \x01(\x0b\x32\x16.beerproto.v1.TimeTypeR\x04time\x12\x32\n\x08\x64uration\x18\x02 \x01(\x0b\x32\x16.beerproto.v1.TimeTypeR\x08\x64uration\x12\x1e\n\ncontinuous\x18\x03 \x01(\x08R\ncontinuous\x12\x44\n\x10specific_gravity\x18\x04 \x01(\x0b\x32\x19.beerproto.v1.GravityTypeR\x0fspecificGravity\x12)\n\x02ph\x18\x05 \x01(\x0b\x32\x19.beerproto.v1.AcidityTypeR\x02ph\x12\x12\n\x04step\x18\x06 \x01(\x05R\x04step\x12\'\n\x03use\x18\x07 \x01(\x0e\x32\x15.beerproto.v1.UseTypeR\x03use*\xd5\x01\n\x07UseType\x12\x18\n\x14USE_TYPE_UNSPECIFIED\x10\x00\x12\x18\n\x14USE_TYPE_ADD_TO_MASH\x10\x01\x12\x18\n\x14USE_TYPE_ADD_TO_BOIL\x10\x02\x12 \n\x1cUSE_TYPE_ADD_TO_FERMENTATION\x10\x03\x12\x1b\n\x17USE_TYPE_ADD_TO_PACKAGE\x10\x04\x12\x1d\n\x19USE_TYPE_ADD_TO_WHIRLPOOL\x10\x05\x12\x1e\n\x1aUSE_TYPE_ADD_TO_FIRST_WORT\x10\x06\x42p\n\x10\x63om.beerproto.v1B\x0bTimingProtoP\x01\xa2\x02\x03\x42XX\xaa\x02\x0c\x42\x65\x65rproto.V1\xca\x02\x0c\x42\x65\x65rproto\\V1\xe2\x02\x18\x42\x65\x65rproto\\V1\\GPBMetadata\xea\x02\rBeerproto::V1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,7 +34,7 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\020com.beerproto.v1B\013TimingProtoP\001\242\002\003BXX\252\002\014Beerproto.V1\312\002\014Beerproto\\V1\342\002\030Beerproto\\V1\\GPBMetadata\352\002\rBeerproto::V1'
   _globals['_USETYPE']._serialized_start=399
-  _globals['_USETYPE']._serialized_end=549
+  _globals['_USETYPE']._serialized_end=612
   _globals['_TIMINGTYPE']._serialized_start=82
   _globals['_TIMINGTYPE']._serialized_end=396
 # @@protoc_insertion_point(module_scope)
