@@ -27,7 +27,7 @@ from beerproto.v1 import measureable_units_pb2 as beerproto_dot_v1_dot_measureab
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x17\x62\x65\x65rproto/v1/boil.proto\x12\x0c\x62\x65\x65rproto.v1\x1a\x1c\x62\x65\x65rproto/v1/boil_step.proto\x1a$beerproto/v1/measureable_units.proto\x1a\x1b\x62uf/validate/validate.proto\"\xb2\x02\n\x11\x42oilProcedureType\x12\x1b\n\x02id\x18\x01 \x01(\tB\x0b\xbaH\x08r\x03\xb0\x01\x01\xc8\x01\x01R\x02id\x12<\n\rpre_boil_size\x18\x02 \x01(\x0b\x32\x18.beerproto.v1.VolumeTypeR\x0bpreBoilSize\x12;\n\tboil_time\x18\x03 \x01(\x0b\x32\x16.beerproto.v1.TimeTypeB\x06\xbaH\x03\xc8\x01\x01R\x08\x62oilTime\x12\x39\n\nboil_steps\x18\x04 \x03(\x0b\x32\x1a.beerproto.v1.BoilStepTypeR\tboilSteps\x12\x12\n\x04name\x18\x05 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x06 \x01(\tR\x0b\x64\x65scription\x12\x14\n\x05notes\x18\x07 \x01(\tR\x05notesBn\n\x10\x63om.beerproto.v1B\tBoilProtoP\x01\xa2\x02\x03\x42XX\xaa\x02\x0c\x42\x65\x65rproto.V1\xca\x02\x0c\x42\x65\x65rproto\\V1\xe2\x02\x18\x42\x65\x65rproto\\V1\\GPBMetadata\xea\x02\rBeerproto::V1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x17\x62\x65\x65rproto/v1/boil.proto\x12\x0c\x62\x65\x65rproto.v1\x1a\x1c\x62\x65\x65rproto/v1/boil_step.proto\x1a$beerproto/v1/measureable_units.proto\x1a\x1b\x62uf/validate/validate.proto\"\x86\x03\n\x11\x42oilProcedureType\x12\x1b\n\x02id\x18\x01 \x01(\tB\x0b\xbaH\x08r\x03\xb0\x01\x01\xc8\x01\x01R\x02id\x12<\n\rpre_boil_size\x18\x02 \x01(\x0b\x32\x18.beerproto.v1.VolumeTypeR\x0bpreBoilSize\x12;\n\tboil_time\x18\x03 \x01(\x0b\x32\x16.beerproto.v1.TimeTypeB\x06\xbaH\x03\xc8\x01\x01R\x08\x62oilTime\x12\x39\n\nboil_steps\x18\x04 \x03(\x0b\x32\x1a.beerproto.v1.BoilStepTypeR\tboilSteps\x12\x12\n\x04name\x18\x05 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x06 \x01(\tR\x0b\x64\x65scription\x12\x14\n\x05notes\x18\x07 \x01(\tR\x05notes\x12R\n\x15whirlpool_temperature\x18\x08 \x01(\x0b\x32\x1d.beerproto.v1.TemperatureTypeR\x14whirlpoolTemperatureBn\n\x10\x63om.beerproto.v1B\tBoilProtoP\x01\xa2\x02\x03\x42XX\xaa\x02\x0c\x42\x65\x65rproto.V1\xca\x02\x0c\x42\x65\x65rproto\\V1\xe2\x02\x18\x42\x65\x65rproto\\V1\\GPBMetadata\xea\x02\rBeerproto::V1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -40,5 +40,5 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_BOILPROCEDURETYPE'].fields_by_name['boil_time']._loaded_options = None
   _globals['_BOILPROCEDURETYPE'].fields_by_name['boil_time']._serialized_options = b'\272H\003\310\001\001'
   _globals['_BOILPROCEDURETYPE']._serialized_start=139
-  _globals['_BOILPROCEDURETYPE']._serialized_end=445
+  _globals['_BOILPROCEDURETYPE']._serialized_end=529
 # @@protoc_insertion_point(module_scope)
