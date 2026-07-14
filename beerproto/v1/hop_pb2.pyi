@@ -59,7 +59,7 @@ IBU_METHOD_UNIT_GARETZ: IBUMethodUnit
 IBU_METHOD_UNIT_OTHER: IBUMethodUnit
 
 class HopVarietyBase(_message.Message):
-    __slots__ = ("name", "producer", "product_id", "origin", "year", "form", "alpha_acid", "beta_acid")
+    __slots__ = ("name", "producer", "product_id", "origin", "year", "form", "alpha_acid", "beta_acid", "percent_lost")
     NAME_FIELD_NUMBER: _ClassVar[int]
     PRODUCER_FIELD_NUMBER: _ClassVar[int]
     PRODUCT_ID_FIELD_NUMBER: _ClassVar[int]
@@ -68,6 +68,7 @@ class HopVarietyBase(_message.Message):
     FORM_FIELD_NUMBER: _ClassVar[int]
     ALPHA_ACID_FIELD_NUMBER: _ClassVar[int]
     BETA_ACID_FIELD_NUMBER: _ClassVar[int]
+    PERCENT_LOST_FIELD_NUMBER: _ClassVar[int]
     name: str
     producer: str
     product_id: str
@@ -76,7 +77,8 @@ class HopVarietyBase(_message.Message):
     form: HopVarietyBaseForm
     alpha_acid: _measureable_units_pb2.PercentType
     beta_acid: _measureable_units_pb2.PercentType
-    def __init__(self, name: _Optional[str] = ..., producer: _Optional[str] = ..., product_id: _Optional[str] = ..., origin: _Optional[str] = ..., year: _Optional[str] = ..., form: _Optional[_Union[HopVarietyBaseForm, str]] = ..., alpha_acid: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., beta_acid: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ...) -> None: ...
+    percent_lost: _measureable_units_pb2.PercentType
+    def __init__(self, name: _Optional[str] = ..., producer: _Optional[str] = ..., product_id: _Optional[str] = ..., origin: _Optional[str] = ..., year: _Optional[str] = ..., form: _Optional[_Union[HopVarietyBaseForm, str]] = ..., alpha_acid: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., beta_acid: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., percent_lost: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ...) -> None: ...
 
 class VarietyInformation(_message.Message):
     __slots__ = ("base", "id", "inventory", "type", "oil_content", "percent_lost", "substitutes", "notes")
