@@ -24,10 +24,11 @@ _sym_db = _symbol_database.Default()
 
 from beerproto.v1 import measureable_units_pb2 as beerproto_dot_v1_dot_measureable__units__pb2
 from beerproto.v1 import timing_pb2 as beerproto_dot_v1_dot_timing__pb2
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x17\x62\x65\x65rproto/v1/misc.proto\x12\x0c\x62\x65\x65rproto.v1\x1a$beerproto/v1/measureable_units.proto\x1a\x19\x62\x65\x65rproto/v1/timing.proto\x1a\x1b\x62uf/validate/validate.proto\"\xb4\x01\n\x11MiscellaneousBase\x12\x1e\n\x04name\x18\x01 \x01(\tB\n\xbaH\x07r\x02\x10\x03\xc8\x01\x01R\x04name\x12\x1a\n\x08producer\x18\x02 \x01(\tR\x08producer\x12\x1d\n\nproduct_id\x18\x03 \x01(\tR\tproductId\x12\x44\n\x04type\x18\x04 \x01(\x0e\x32#.beerproto.v1.MiscellaneousBaseTypeB\x0b\xbaH\x08\x82\x01\x02 \x00\xc8\x01\x01R\x04type\"\xe4\x01\n\x11MiscellaneousType\x12;\n\x04\x62\x61se\x18\x01 \x01(\x0b\x32\x1f.beerproto.v1.MiscellaneousBaseB\x06\xbaH\x03\xc8\x01\x01R\x04\x62\x61se\x12\x1b\n\x02id\x18\x02 \x01(\tB\x0b\xbaH\x08r\x03\xb0\x01\x01\xc8\x01\x01R\x02id\x12\x17\n\x07use_for\x18\x03 \x01(\tR\x06useFor\x12\x14\n\x05notes\x18\x04 \x01(\tR\x05notes\x12\x46\n\tinventory\x18\x05 \x01(\x0b\x32(.beerproto.v1.MiscellaneousInventoryTypeR\tinventory\"\xc8\x02\n\x19MiscellaneousAdditionType\x12;\n\x04\x62\x61se\x18\x01 \x01(\x0b\x32\x1f.beerproto.v1.MiscellaneousBaseB\x06\xbaH\x03\xc8\x01\x01R\x04\x62\x61se\x12\x1b\n\x02id\x18\x02 \x01(\tB\x0b\xbaH\x08r\x03\xb0\x01\x01\xc8\x01\x01R\x02id\x12\x30\n\x06timing\x18\x03 \x01(\x0b\x32\x18.beerproto.v1.TimingTypeR\x06timing\x12,\n\x04mass\x18\x04 \x01(\x0b\x32\x16.beerproto.v1.MassTypeH\x00R\x04mass\x12,\n\x04unit\x18\x05 \x01(\x0b\x32\x16.beerproto.v1.UnitTypeH\x00R\x04unit\x12\x32\n\x06volume\x18\x06 \x01(\x0b\x32\x18.beerproto.v1.VolumeTypeH\x00R\x06volumeB\x0f\n\x06\x61mount\x12\x05\xbaH\x02\x08\x01\"\xbd\x01\n\x1aMiscellaneousInventoryType\x12,\n\x04mass\x18\x01 \x01(\x0b\x32\x16.beerproto.v1.MassTypeH\x00R\x04mass\x12,\n\x04unit\x18\x02 \x01(\x0b\x32\x16.beerproto.v1.UnitTypeH\x00R\x04unit\x12\x32\n\x06volume\x18\x03 \x01(\x0b\x32\x18.beerproto.v1.VolumeTypeH\x00R\x06volumeB\x0f\n\x06\x61mount\x12\x05\xbaH\x02\x08\x01*\xbb\x02\n\x15MiscellaneousBaseType\x12\'\n#MISCELLANEOUS_BASE_TYPE_UNSPECIFIED\x10\x00\x12!\n\x1dMISCELLANEOUS_BASE_TYPE_SPICE\x10\x01\x12\"\n\x1eMISCELLANEOUS_BASE_TYPE_FINING\x10\x02\x12\'\n#MISCELLANEOUS_BASE_TYPE_WATER_AGENT\x10\x03\x12 \n\x1cMISCELLANEOUS_BASE_TYPE_HERB\x10\x04\x12\"\n\x1eMISCELLANEOUS_BASE_TYPE_FLAVOR\x10\x05\x12 \n\x1cMISCELLANEOUS_BASE_TYPE_WOOD\x10\x06\x12!\n\x1dMISCELLANEOUS_BASE_TYPE_OTHER\x10\x07\x42n\n\x10\x63om.beerproto.v1B\tMiscProtoP\x01\xa2\x02\x03\x42XX\xaa\x02\x0c\x42\x65\x65rproto.V1\xca\x02\x0c\x42\x65\x65rproto\\V1\xe2\x02\x18\x42\x65\x65rproto\\V1\\GPBMetadata\xea\x02\rBeerproto::V1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x17\x62\x65\x65rproto/v1/misc.proto\x12\x0c\x62\x65\x65rproto.v1\x1a$beerproto/v1/measureable_units.proto\x1a\x19\x62\x65\x65rproto/v1/timing.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\xb4\x01\n\x11MiscellaneousBase\x12\x1e\n\x04name\x18\x01 \x01(\tB\n\xbaH\x07r\x02\x10\x03\xc8\x01\x01R\x04name\x12\x1a\n\x08producer\x18\x02 \x01(\tR\x08producer\x12\x1d\n\nproduct_id\x18\x03 \x01(\tR\tproductId\x12\x44\n\x04type\x18\x04 \x01(\x0e\x32#.beerproto.v1.MiscellaneousBaseTypeB\x0b\xbaH\x08\x82\x01\x02 \x00\xc8\x01\x01R\x04type\"\xe4\x01\n\x11MiscellaneousType\x12;\n\x04\x62\x61se\x18\x01 \x01(\x0b\x32\x1f.beerproto.v1.MiscellaneousBaseB\x06\xbaH\x03\xc8\x01\x01R\x04\x62\x61se\x12\x1b\n\x02id\x18\x02 \x01(\tB\x0b\xbaH\x08r\x03\xb0\x01\x01\xc8\x01\x01R\x02id\x12\x17\n\x07use_for\x18\x03 \x01(\tR\x06useFor\x12\x14\n\x05notes\x18\x04 \x01(\tR\x05notes\x12\x46\n\tinventory\x18\x05 \x01(\x0b\x32(.beerproto.v1.MiscellaneousInventoryTypeR\tinventory\"\xc8\x02\n\x19MiscellaneousAdditionType\x12;\n\x04\x62\x61se\x18\x01 \x01(\x0b\x32\x1f.beerproto.v1.MiscellaneousBaseB\x06\xbaH\x03\xc8\x01\x01R\x04\x62\x61se\x12\x1b\n\x02id\x18\x02 \x01(\tB\x0b\xbaH\x08r\x03\xb0\x01\x01\xc8\x01\x01R\x02id\x12\x30\n\x06timing\x18\x03 \x01(\x0b\x32\x18.beerproto.v1.TimingTypeR\x06timing\x12,\n\x04mass\x18\x04 \x01(\x0b\x32\x16.beerproto.v1.MassTypeH\x00R\x04mass\x12,\n\x04unit\x18\x05 \x01(\x0b\x32\x16.beerproto.v1.UnitTypeH\x00R\x04unit\x12\x32\n\x06volume\x18\x06 \x01(\x0b\x32\x18.beerproto.v1.VolumeTypeH\x00R\x06volumeB\x0f\n\x06\x61mount\x12\x05\xbaH\x02\x08\x01\"\xfa\x01\n\x1aMiscellaneousInventoryType\x12,\n\x04mass\x18\x01 \x01(\x0b\x32\x16.beerproto.v1.MassTypeH\x00R\x04mass\x12,\n\x04unit\x18\x02 \x01(\x0b\x32\x16.beerproto.v1.UnitTypeH\x00R\x04unit\x12\x32\n\x06volume\x18\x03 \x01(\x0b\x32\x18.beerproto.v1.VolumeTypeH\x00R\x06volume\x12;\n\x0b\x62\x65st_before\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\nbestBeforeB\x0f\n\x06\x61mount\x12\x05\xbaH\x02\x08\x01*\xbb\x02\n\x15MiscellaneousBaseType\x12\'\n#MISCELLANEOUS_BASE_TYPE_UNSPECIFIED\x10\x00\x12!\n\x1dMISCELLANEOUS_BASE_TYPE_SPICE\x10\x01\x12\"\n\x1eMISCELLANEOUS_BASE_TYPE_FINING\x10\x02\x12\'\n#MISCELLANEOUS_BASE_TYPE_WATER_AGENT\x10\x03\x12 \n\x1cMISCELLANEOUS_BASE_TYPE_HERB\x10\x04\x12\"\n\x1eMISCELLANEOUS_BASE_TYPE_FLAVOR\x10\x05\x12 \n\x1cMISCELLANEOUS_BASE_TYPE_WOOD\x10\x06\x12!\n\x1dMISCELLANEOUS_BASE_TYPE_OTHER\x10\x07\x42n\n\x10\x63om.beerproto.v1B\tMiscProtoP\x01\xa2\x02\x03\x42XX\xaa\x02\x0c\x42\x65\x65rproto.V1\xca\x02\x0c\x42\x65\x65rproto\\V1\xe2\x02\x18\x42\x65\x65rproto\\V1\\GPBMetadata\xea\x02\rBeerproto::V1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -51,14 +52,14 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_MISCELLANEOUSADDITIONTYPE'].fields_by_name['id']._serialized_options = b'\272H\010r\003\260\001\001\310\001\001'
   _globals['_MISCELLANEOUSINVENTORYTYPE'].oneofs_by_name['amount']._loaded_options = None
   _globals['_MISCELLANEOUSINVENTORYTYPE'].oneofs_by_name['amount']._serialized_options = b'\272H\002\010\001'
-  _globals['_MISCELLANEOUSBASETYPE']._serialized_start=1073
-  _globals['_MISCELLANEOUSBASETYPE']._serialized_end=1388
-  _globals['_MISCELLANEOUSBASE']._serialized_start=136
-  _globals['_MISCELLANEOUSBASE']._serialized_end=316
-  _globals['_MISCELLANEOUSTYPE']._serialized_start=319
-  _globals['_MISCELLANEOUSTYPE']._serialized_end=547
-  _globals['_MISCELLANEOUSADDITIONTYPE']._serialized_start=550
-  _globals['_MISCELLANEOUSADDITIONTYPE']._serialized_end=878
-  _globals['_MISCELLANEOUSINVENTORYTYPE']._serialized_start=881
-  _globals['_MISCELLANEOUSINVENTORYTYPE']._serialized_end=1070
+  _globals['_MISCELLANEOUSBASETYPE']._serialized_start=1167
+  _globals['_MISCELLANEOUSBASETYPE']._serialized_end=1482
+  _globals['_MISCELLANEOUSBASE']._serialized_start=169
+  _globals['_MISCELLANEOUSBASE']._serialized_end=349
+  _globals['_MISCELLANEOUSTYPE']._serialized_start=352
+  _globals['_MISCELLANEOUSTYPE']._serialized_end=580
+  _globals['_MISCELLANEOUSADDITIONTYPE']._serialized_start=583
+  _globals['_MISCELLANEOUSADDITIONTYPE']._serialized_end=911
+  _globals['_MISCELLANEOUSINVENTORYTYPE']._serialized_start=914
+  _globals['_MISCELLANEOUSINVENTORYTYPE']._serialized_end=1164
 # @@protoc_insertion_point(module_scope)

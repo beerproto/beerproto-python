@@ -1,5 +1,8 @@
+import datetime
+
 from beerproto.v1 import measureable_units_pb2 as _measureable_units_pb2
 from beerproto.v1 import timing_pb2 as _timing_pb2
+from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
@@ -8,6 +11,14 @@ from collections.abc import Mapping as _Mapping
 from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
+
+class GrainCrush(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    GRAIN_CRUSH_UNSPECIFIED: _ClassVar[GrainCrush]
+    GRAIN_CRUSH_UNCRUSHED: _ClassVar[GrainCrush]
+    GRAIN_CRUSH_COARSE: _ClassVar[GrainCrush]
+    GRAIN_CRUSH_MEDIUM: _ClassVar[GrainCrush]
+    GRAIN_CRUSH_FINE: _ClassVar[GrainCrush]
 
 class FermentableBaseType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -31,6 +42,11 @@ class GrainGroup(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     GRAIN_GROUP_SPECIALTY: _ClassVar[GrainGroup]
     GRAIN_GROUP_SMOKED: _ClassVar[GrainGroup]
     GRAIN_GROUP_ADJUNCT: _ClassVar[GrainGroup]
+GRAIN_CRUSH_UNSPECIFIED: GrainCrush
+GRAIN_CRUSH_UNCRUSHED: GrainCrush
+GRAIN_CRUSH_COARSE: GrainCrush
+GRAIN_CRUSH_MEDIUM: GrainCrush
+GRAIN_CRUSH_FINE: GrainCrush
 FERMENTABLE_BASE_TYPE_UNSPECIFIED: FermentableBaseType
 FERMENTABLE_BASE_TYPE_DRY_EXTRACT: FermentableBaseType
 FERMENTABLE_BASE_TYPE_EXTRACT: FermentableBaseType
@@ -147,9 +163,17 @@ class YieldType(_message.Message):
     def __init__(self, fine_grind: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., coarse_grind: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., fine_coarse_difference: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., potential: _Optional[_Union[_measureable_units_pb2.GravityType, _Mapping]] = ...) -> None: ...
 
 class FermentableInventoryType(_message.Message):
-    __slots__ = ("mass", "volume")
+    __slots__ = ("mass", "volume", "best_before", "lot_potential", "crush", "moisture")
     MASS_FIELD_NUMBER: _ClassVar[int]
     VOLUME_FIELD_NUMBER: _ClassVar[int]
+    BEST_BEFORE_FIELD_NUMBER: _ClassVar[int]
+    LOT_POTENTIAL_FIELD_NUMBER: _ClassVar[int]
+    CRUSH_FIELD_NUMBER: _ClassVar[int]
+    MOISTURE_FIELD_NUMBER: _ClassVar[int]
     mass: _measureable_units_pb2.MassType
     volume: _measureable_units_pb2.VolumeType
-    def __init__(self, mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ...) -> None: ...
+    best_before: _timestamp_pb2.Timestamp
+    lot_potential: _measureable_units_pb2.GravityType
+    crush: GrainCrush
+    moisture: _measureable_units_pb2.PercentType
+    def __init__(self, mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., best_before: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., lot_potential: _Optional[_Union[_measureable_units_pb2.GravityType, _Mapping]] = ..., crush: _Optional[_Union[GrainCrush, str]] = ..., moisture: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ...) -> None: ...

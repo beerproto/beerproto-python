@@ -1,5 +1,8 @@
+import datetime
+
 from beerproto.v1 import measureable_units_pb2 as _measureable_units_pb2
 from beerproto.v1 import timing_pb2 as _timing_pb2
+from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
@@ -155,20 +158,24 @@ class CultureAdditionType(_message.Message):
     def __init__(self, base: _Optional[_Union[CultureBase, _Mapping]] = ..., id: _Optional[str] = ..., cell_count_billions: _Optional[int] = ..., times_cultured: _Optional[int] = ..., type: _Optional[_Union[CultureBaseType, str]] = ..., attenuation: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., timing: _Optional[_Union[_timing_pb2.TimingType, _Mapping]] = ..., mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., unit: _Optional[_Union[_measureable_units_pb2.UnitType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ...) -> None: ...
 
 class CultureInventoryType(_message.Message):
-    __slots__ = ("liquid", "dry", "slant", "culture", "manufacture_date", "generation")
+    __slots__ = ("liquid", "dry", "slant", "culture", "manufacture_date", "generation", "best_before", "liquid_packs")
     LIQUID_FIELD_NUMBER: _ClassVar[int]
     DRY_FIELD_NUMBER: _ClassVar[int]
     SLANT_FIELD_NUMBER: _ClassVar[int]
     CULTURE_FIELD_NUMBER: _ClassVar[int]
     MANUFACTURE_DATE_FIELD_NUMBER: _ClassVar[int]
     GENERATION_FIELD_NUMBER: _ClassVar[int]
+    BEST_BEFORE_FIELD_NUMBER: _ClassVar[int]
+    LIQUID_PACKS_FIELD_NUMBER: _ClassVar[int]
     liquid: _measureable_units_pb2.VolumeType
     dry: _measureable_units_pb2.MassType
     slant: _measureable_units_pb2.VolumeType
     culture: _measureable_units_pb2.VolumeType
     manufacture_date: str
     generation: int
-    def __init__(self, liquid: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., dry: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., slant: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., culture: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., manufacture_date: _Optional[str] = ..., generation: _Optional[int] = ...) -> None: ...
+    best_before: _timestamp_pb2.Timestamp
+    liquid_packs: _measureable_units_pb2.UnitType
+    def __init__(self, liquid: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., dry: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., slant: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., culture: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., manufacture_date: _Optional[str] = ..., generation: _Optional[int] = ..., best_before: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., liquid_packs: _Optional[_Union[_measureable_units_pb2.UnitType, _Mapping]] = ...) -> None: ...
 
 class Zymocide(_message.Message):
     __slots__ = ("no1", "no2", "no28", "klus", "neutral")
