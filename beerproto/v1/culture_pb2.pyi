@@ -155,16 +155,20 @@ class CultureAdditionType(_message.Message):
     def __init__(self, base: _Optional[_Union[CultureBase, _Mapping]] = ..., id: _Optional[str] = ..., cell_count_billions: _Optional[int] = ..., times_cultured: _Optional[int] = ..., type: _Optional[_Union[CultureBaseType, str]] = ..., attenuation: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., timing: _Optional[_Union[_timing_pb2.TimingType, _Mapping]] = ..., mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., unit: _Optional[_Union[_measureable_units_pb2.UnitType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ...) -> None: ...
 
 class CultureInventoryType(_message.Message):
-    __slots__ = ("liquid", "dry", "slant", "culture")
+    __slots__ = ("liquid", "dry", "slant", "culture", "manufacture_date", "generation")
     LIQUID_FIELD_NUMBER: _ClassVar[int]
     DRY_FIELD_NUMBER: _ClassVar[int]
     SLANT_FIELD_NUMBER: _ClassVar[int]
     CULTURE_FIELD_NUMBER: _ClassVar[int]
+    MANUFACTURE_DATE_FIELD_NUMBER: _ClassVar[int]
+    GENERATION_FIELD_NUMBER: _ClassVar[int]
     liquid: _measureable_units_pb2.VolumeType
     dry: _measureable_units_pb2.MassType
     slant: _measureable_units_pb2.VolumeType
     culture: _measureable_units_pb2.VolumeType
-    def __init__(self, liquid: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., dry: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., slant: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., culture: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ...) -> None: ...
+    manufacture_date: str
+    generation: int
+    def __init__(self, liquid: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., dry: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., slant: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., culture: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., manufacture_date: _Optional[str] = ..., generation: _Optional[int] = ...) -> None: ...
 
 class Zymocide(_message.Message):
     __slots__ = ("no1", "no2", "no28", "klus", "neutral")
