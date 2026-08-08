@@ -139,6 +139,18 @@ class PercentUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PERCENT_UNIT_UNSPECIFIED: _ClassVar[PercentUnit]
     PERCENT_UNIT_PERCENT_SIGN: _ClassVar[PercentUnit]
 
+class MolarUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    MOLAR_UNIT_UNSPECIFIED: _ClassVar[MolarUnit]
+    MOLAR_UNIT_GMOL: _ClassVar[MolarUnit]
+
+class PartsPerUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    PARTS_PER_UNIT_UNSPECIFIED: _ClassVar[PartsPerUnit]
+    PARTS_PER_UNIT_MILLION: _ClassVar[PartsPerUnit]
+    PARTS_PER_UNIT_BILLION: _ClassVar[PartsPerUnit]
+    PARTS_PER_UNIT_TRILLION: _ClassVar[PartsPerUnit]
+
 class ViscosityUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     VISCOSITY_UNIT_UNSPECIFIED: _ClassVar[ViscosityUnit]
@@ -264,6 +276,12 @@ UNIT_UNIT_DIMENSIONLESS: UnitUnit
 UNIT_UNIT_PKG: UnitUnit
 PERCENT_UNIT_UNSPECIFIED: PercentUnit
 PERCENT_UNIT_PERCENT_SIGN: PercentUnit
+MOLAR_UNIT_UNSPECIFIED: MolarUnit
+MOLAR_UNIT_GMOL: MolarUnit
+PARTS_PER_UNIT_UNSPECIFIED: PartsPerUnit
+PARTS_PER_UNIT_MILLION: PartsPerUnit
+PARTS_PER_UNIT_BILLION: PartsPerUnit
+PARTS_PER_UNIT_TRILLION: PartsPerUnit
 VISCOSITY_UNIT_UNSPECIFIED: ViscosityUnit
 VISCOSITY_UNIT_CP: ViscosityUnit
 VISCOSITY_UNIT_MPAS: ViscosityUnit
@@ -430,6 +448,22 @@ class PercentType(_message.Message):
     value: float
     unit: PercentUnit
     def __init__(self, value: _Optional[float] = ..., unit: _Optional[_Union[PercentUnit, str]] = ...) -> None: ...
+
+class MolarType(_message.Message):
+    __slots__ = ("value", "unit")
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    UNIT_FIELD_NUMBER: _ClassVar[int]
+    value: float
+    unit: MolarUnit
+    def __init__(self, value: _Optional[float] = ..., unit: _Optional[_Union[MolarUnit, str]] = ...) -> None: ...
+
+class PartsPerType(_message.Message):
+    __slots__ = ("value", "unit")
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    UNIT_FIELD_NUMBER: _ClassVar[int]
+    value: float
+    unit: PartsPerUnit
+    def __init__(self, value: _Optional[float] = ..., unit: _Optional[_Union[PartsPerUnit, str]] = ...) -> None: ...
 
 class ViscosityType(_message.Message):
     __slots__ = ("value", "unit")
