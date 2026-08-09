@@ -151,6 +151,11 @@ class PartsPerUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PARTS_PER_UNIT_BILLION: _ClassVar[PartsPerUnit]
     PARTS_PER_UNIT_TRILLION: _ClassVar[PartsPerUnit]
 
+class BufferingCapacityUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    BUFFERING_CAPACITY_UNIT_UNSPECIFIED: _ClassVar[BufferingCapacityUnit]
+    BUFFERING_CAPACITY_UNIT_MEQ_KG_PH: _ClassVar[BufferingCapacityUnit]
+
 class ViscosityUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     VISCOSITY_UNIT_UNSPECIFIED: _ClassVar[ViscosityUnit]
@@ -282,6 +287,8 @@ PARTS_PER_UNIT_UNSPECIFIED: PartsPerUnit
 PARTS_PER_UNIT_MILLION: PartsPerUnit
 PARTS_PER_UNIT_BILLION: PartsPerUnit
 PARTS_PER_UNIT_TRILLION: PartsPerUnit
+BUFFERING_CAPACITY_UNIT_UNSPECIFIED: BufferingCapacityUnit
+BUFFERING_CAPACITY_UNIT_MEQ_KG_PH: BufferingCapacityUnit
 VISCOSITY_UNIT_UNSPECIFIED: ViscosityUnit
 VISCOSITY_UNIT_CP: ViscosityUnit
 VISCOSITY_UNIT_MPAS: ViscosityUnit
@@ -464,6 +471,14 @@ class PartsPerType(_message.Message):
     value: float
     unit: PartsPerUnit
     def __init__(self, value: _Optional[float] = ..., unit: _Optional[_Union[PartsPerUnit, str]] = ...) -> None: ...
+
+class BufferingCapacityType(_message.Message):
+    __slots__ = ("value", "unit")
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    UNIT_FIELD_NUMBER: _ClassVar[int]
+    value: float
+    unit: BufferingCapacityUnit
+    def __init__(self, value: _Optional[float] = ..., unit: _Optional[_Union[BufferingCapacityUnit, str]] = ...) -> None: ...
 
 class ViscosityType(_message.Message):
     __slots__ = ("value", "unit")

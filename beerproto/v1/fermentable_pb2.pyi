@@ -66,7 +66,7 @@ GRAIN_GROUP_SMOKED: GrainGroup
 GRAIN_GROUP_ADJUNCT: GrainGroup
 
 class FermentableBase(_message.Message):
-    __slots__ = ("type", "origin", "grain_group", "color", "name", "producer", "product_id", "diastatic_power")
+    __slots__ = ("type", "origin", "grain_group", "color", "name", "producer", "product_id", "diastatic_power", "di_ph", "buffering_capacity")
     TYPE_FIELD_NUMBER: _ClassVar[int]
     ORIGIN_FIELD_NUMBER: _ClassVar[int]
     GRAIN_GROUP_FIELD_NUMBER: _ClassVar[int]
@@ -76,6 +76,8 @@ class FermentableBase(_message.Message):
     PRODUCER_FIELD_NUMBER: _ClassVar[int]
     PRODUCT_ID_FIELD_NUMBER: _ClassVar[int]
     DIASTATIC_POWER_FIELD_NUMBER: _ClassVar[int]
+    DI_PH_FIELD_NUMBER: _ClassVar[int]
+    BUFFERING_CAPACITY_FIELD_NUMBER: _ClassVar[int]
     type: FermentableBaseType
     origin: str
     grain_group: GrainGroup
@@ -84,10 +86,12 @@ class FermentableBase(_message.Message):
     producer: str
     product_id: str
     diastatic_power: _measureable_units_pb2.DiastaticPowerType
-    def __init__(self, type: _Optional[_Union[FermentableBaseType, str]] = ..., origin: _Optional[str] = ..., grain_group: _Optional[_Union[GrainGroup, str]] = ..., color: _Optional[_Union[_measureable_units_pb2.ColorType, _Mapping]] = ..., name: _Optional[str] = ..., producer: _Optional[str] = ..., product_id: _Optional[str] = ..., diastatic_power: _Optional[_Union[_measureable_units_pb2.DiastaticPowerType, _Mapping]] = ..., **kwargs) -> None: ...
+    di_ph: _measureable_units_pb2.AcidityType
+    buffering_capacity: _measureable_units_pb2.BufferingCapacityType
+    def __init__(self, type: _Optional[_Union[FermentableBaseType, str]] = ..., origin: _Optional[str] = ..., grain_group: _Optional[_Union[GrainGroup, str]] = ..., color: _Optional[_Union[_measureable_units_pb2.ColorType, _Mapping]] = ..., name: _Optional[str] = ..., producer: _Optional[str] = ..., product_id: _Optional[str] = ..., diastatic_power: _Optional[_Union[_measureable_units_pb2.DiastaticPowerType, _Mapping]] = ..., di_ph: _Optional[_Union[_measureable_units_pb2.AcidityType, _Mapping]] = ..., buffering_capacity: _Optional[_Union[_measureable_units_pb2.BufferingCapacityType, _Mapping]] = ..., **kwargs) -> None: ...
 
 class FermentableType(_message.Message):
-    __slots__ = ("base", "id", "max_in_batch", "recommend_mash", "protein", "alpha_amylase", "diastatic_power", "moisture", "inventory", "kolbach_index", "glassy", "plump", "half", "mealy", "thru", "friability", "di_ph", "viscosity", "dms_p", "fan", "fermentability", "beta_glucan", "notes")
+    __slots__ = ("base", "id", "max_in_batch", "recommend_mash", "protein", "alpha_amylase", "diastatic_power", "moisture", "inventory", "kolbach_index", "glassy", "plump", "half", "mealy", "thru", "friability", "di_ph", "viscosity", "dms_p", "fan", "fermentability", "beta_glucan", "notes", "buffering_capacity")
     BASE_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     MAX_IN_BATCH_FIELD_NUMBER: _ClassVar[int]
@@ -111,6 +115,7 @@ class FermentableType(_message.Message):
     FERMENTABILITY_FIELD_NUMBER: _ClassVar[int]
     BETA_GLUCAN_FIELD_NUMBER: _ClassVar[int]
     NOTES_FIELD_NUMBER: _ClassVar[int]
+    BUFFERING_CAPACITY_FIELD_NUMBER: _ClassVar[int]
     base: FermentableBase
     id: str
     max_in_batch: _measureable_units_pb2.PercentType
@@ -134,7 +139,8 @@ class FermentableType(_message.Message):
     fermentability: _measureable_units_pb2.PercentType
     beta_glucan: _measureable_units_pb2.ConcentrationType
     notes: str
-    def __init__(self, base: _Optional[_Union[FermentableBase, _Mapping]] = ..., id: _Optional[str] = ..., max_in_batch: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., recommend_mash: _Optional[bool] = ..., protein: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., alpha_amylase: _Optional[_Union[_measureable_units_pb2.EnzymeActivityType, _Mapping]] = ..., diastatic_power: _Optional[_Union[_measureable_units_pb2.DiastaticPowerType, _Mapping]] = ..., moisture: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., inventory: _Optional[_Union[FermentableInventoryType, _Mapping]] = ..., kolbach_index: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., glassy: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., plump: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., half: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., mealy: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., thru: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., friability: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., di_ph: _Optional[_Union[_measureable_units_pb2.AcidityType, _Mapping]] = ..., viscosity: _Optional[_Union[_measureable_units_pb2.ViscosityType, _Mapping]] = ..., dms_p: _Optional[_Union[_measureable_units_pb2.ConcentrationType, _Mapping]] = ..., fan: _Optional[_Union[_measureable_units_pb2.ConcentrationType, _Mapping]] = ..., fermentability: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., beta_glucan: _Optional[_Union[_measureable_units_pb2.ConcentrationType, _Mapping]] = ..., notes: _Optional[str] = ...) -> None: ...
+    buffering_capacity: _measureable_units_pb2.BufferingCapacityType
+    def __init__(self, base: _Optional[_Union[FermentableBase, _Mapping]] = ..., id: _Optional[str] = ..., max_in_batch: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., recommend_mash: _Optional[bool] = ..., protein: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., alpha_amylase: _Optional[_Union[_measureable_units_pb2.EnzymeActivityType, _Mapping]] = ..., diastatic_power: _Optional[_Union[_measureable_units_pb2.DiastaticPowerType, _Mapping]] = ..., moisture: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., inventory: _Optional[_Union[FermentableInventoryType, _Mapping]] = ..., kolbach_index: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., glassy: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., plump: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., half: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., mealy: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., thru: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., friability: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., di_ph: _Optional[_Union[_measureable_units_pb2.AcidityType, _Mapping]] = ..., viscosity: _Optional[_Union[_measureable_units_pb2.ViscosityType, _Mapping]] = ..., dms_p: _Optional[_Union[_measureable_units_pb2.ConcentrationType, _Mapping]] = ..., fan: _Optional[_Union[_measureable_units_pb2.ConcentrationType, _Mapping]] = ..., fermentability: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., beta_glucan: _Optional[_Union[_measureable_units_pb2.ConcentrationType, _Mapping]] = ..., notes: _Optional[str] = ..., buffering_capacity: _Optional[_Union[_measureable_units_pb2.BufferingCapacityType, _Mapping]] = ...) -> None: ...
 
 class FermentableAdditionType(_message.Message):
     __slots__ = ("base", "id", "timing", "mass", "volume")
