@@ -42,6 +42,7 @@ class GrainGroup(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     GRAIN_GROUP_SPECIALTY: _ClassVar[GrainGroup]
     GRAIN_GROUP_SMOKED: _ClassVar[GrainGroup]
     GRAIN_GROUP_ADJUNCT: _ClassVar[GrainGroup]
+    GRAIN_GROUP_ACIDULATED: _ClassVar[GrainGroup]
 GRAIN_CRUSH_UNSPECIFIED: GrainCrush
 GRAIN_CRUSH_UNCRUSHED: GrainCrush
 GRAIN_CRUSH_COARSE: GrainCrush
@@ -64,6 +65,7 @@ GRAIN_GROUP_ROASTED: GrainGroup
 GRAIN_GROUP_SPECIALTY: GrainGroup
 GRAIN_GROUP_SMOKED: GrainGroup
 GRAIN_GROUP_ADJUNCT: GrainGroup
+GRAIN_GROUP_ACIDULATED: GrainGroup
 
 class FermentableBase(_message.Message):
     __slots__ = ("type", "origin", "grain_group", "color", "name", "producer", "product_id", "diastatic_power", "di_ph", "buffering_capacity")
