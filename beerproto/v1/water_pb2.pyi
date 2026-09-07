@@ -1,12 +1,37 @@
 from beerproto.v1 import measureable_units_pb2 as _measureable_units_pb2
 from beerproto.v1 import timing_pb2 as _timing_pb2
 from buf.validate import validate_pb2 as _validate_pb2
+from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from collections.abc import Mapping as _Mapping
 from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
+
+class AcidType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    ACID_TYPE_UNSPECIFIED: _ClassVar[AcidType]
+    ACID_TYPE_LACTIC_88: _ClassVar[AcidType]
+    ACID_TYPE_LACTIC_80: _ClassVar[AcidType]
+    ACID_TYPE_PHOSPHORIC_85: _ClassVar[AcidType]
+    ACID_TYPE_PHOSPHORIC_10: _ClassVar[AcidType]
+    ACID_TYPE_ACIDULATED_MALT: _ClassVar[AcidType]
+
+class MashPhModel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    MASH_PH_MODEL_UNSPECIFIED: _ClassVar[MashPhModel]
+    MASH_PH_MODEL_BUFFERED: _ClassVar[MashPhModel]
+    MASH_PH_MODEL_ALKALINITY: _ClassVar[MashPhModel]
+ACID_TYPE_UNSPECIFIED: AcidType
+ACID_TYPE_LACTIC_88: AcidType
+ACID_TYPE_LACTIC_80: AcidType
+ACID_TYPE_PHOSPHORIC_85: AcidType
+ACID_TYPE_PHOSPHORIC_10: AcidType
+ACID_TYPE_ACIDULATED_MALT: AcidType
+MASH_PH_MODEL_UNSPECIFIED: MashPhModel
+MASH_PH_MODEL_BUFFERED: MashPhModel
+MASH_PH_MODEL_ALKALINITY: MashPhModel
 
 class WaterBase(_message.Message):
     __slots__ = ("calcium", "nitrite", "chloride", "name", "potassium", "carbonate", "iron", "flouride", "sulfate", "magnesium", "producer", "bicarbonate", "nitrate", "sodium")
