@@ -13,6 +13,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
+class WineStyleType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    WINE_STYLE_TYPE_UNSPECIFIED: _ClassVar[WineStyleType]
+    WINE_STYLE_TYPE_RED: _ClassVar[WineStyleType]
+    WINE_STYLE_TYPE_WHITE: _ClassVar[WineStyleType]
+    WINE_STYLE_TYPE_ROSE: _ClassVar[WineStyleType]
+
 class BatchStatusType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     BATCH_STATUS_TYPE_UNSPECIFIED: _ClassVar[BatchStatusType]
@@ -42,6 +49,10 @@ class GrowthModel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     GROWTH_MODEL_BRAUKAISER: _ClassVar[GrowthModel]
     GROWTH_MODEL_C_WHITE_NO_AGITATION: _ClassVar[GrowthModel]
     GROWTH_MODEL_C_WHITE_SHAKING: _ClassVar[GrowthModel]
+WINE_STYLE_TYPE_UNSPECIFIED: WineStyleType
+WINE_STYLE_TYPE_RED: WineStyleType
+WINE_STYLE_TYPE_WHITE: WineStyleType
+WINE_STYLE_TYPE_ROSE: WineStyleType
 BATCH_STATUS_TYPE_UNSPECIFIED: BatchStatusType
 BATCH_STATUS_TYPE_PLANNING: BatchStatusType
 BATCH_STATUS_TYPE_BREWING: BatchStatusType
@@ -62,7 +73,7 @@ GROWTH_MODEL_C_WHITE_NO_AGITATION: GrowthModel
 GROWTH_MODEL_C_WHITE_SHAKING: GrowthModel
 
 class Batch(_message.Message):
-    __slots__ = ("id", "recipe_id", "name", "batch", "date", "status", "brew_step", "equipment", "starters", "water_adjustment_strategy", "mash_acid_additions", "fermentation_profile", "measurements", "estimates", "logs", "notes", "rating")
+    __slots__ = ("id", "recipe_id", "name", "batch", "date", "status", "brew_step", "equipment", "starters", "water_adjustment_strategy", "mash_acid_additions", "fermentation_profile", "measurements", "estimates", "logs", "notes", "rating", "wine_style")
     ID_FIELD_NUMBER: _ClassVar[int]
     RECIPE_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -80,6 +91,7 @@ class Batch(_message.Message):
     LOGS_FIELD_NUMBER: _ClassVar[int]
     NOTES_FIELD_NUMBER: _ClassVar[int]
     RATING_FIELD_NUMBER: _ClassVar[int]
+    WINE_STYLE_FIELD_NUMBER: _ClassVar[int]
     id: str
     recipe_id: str
     name: str
@@ -97,7 +109,8 @@ class Batch(_message.Message):
     logs: _containers.RepeatedCompositeFieldContainer[Log]
     notes: str
     rating: float
-    def __init__(self, id: _Optional[str] = ..., recipe_id: _Optional[str] = ..., name: _Optional[str] = ..., batch: _Optional[int] = ..., date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., status: _Optional[_Union[BatchStatusType, str]] = ..., brew_step: _Optional[int] = ..., equipment: _Optional[_Union[_equipment_pb2.EquipmentType, _Mapping]] = ..., starters: _Optional[_Iterable[_Union[Starter, _Mapping]]] = ..., water_adjustment_strategy: _Optional[_Union[WaterAdjustmentStrategyType, str]] = ..., mash_acid_additions: _Optional[_Iterable[_Union[MashAcidAddition, _Mapping]]] = ..., fermentation_profile: _Optional[_Union[FermentationProfile, _Mapping]] = ..., measurements: _Optional[_Union[Measurements, _Mapping]] = ..., estimates: _Optional[_Union[Estimates, _Mapping]] = ..., logs: _Optional[_Iterable[_Union[Log, _Mapping]]] = ..., notes: _Optional[str] = ..., rating: _Optional[float] = ...) -> None: ...
+    wine_style: WineStyleType
+    def __init__(self, id: _Optional[str] = ..., recipe_id: _Optional[str] = ..., name: _Optional[str] = ..., batch: _Optional[int] = ..., date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., status: _Optional[_Union[BatchStatusType, str]] = ..., brew_step: _Optional[int] = ..., equipment: _Optional[_Union[_equipment_pb2.EquipmentType, _Mapping]] = ..., starters: _Optional[_Iterable[_Union[Starter, _Mapping]]] = ..., water_adjustment_strategy: _Optional[_Union[WaterAdjustmentStrategyType, str]] = ..., mash_acid_additions: _Optional[_Iterable[_Union[MashAcidAddition, _Mapping]]] = ..., fermentation_profile: _Optional[_Union[FermentationProfile, _Mapping]] = ..., measurements: _Optional[_Union[Measurements, _Mapping]] = ..., estimates: _Optional[_Union[Estimates, _Mapping]] = ..., logs: _Optional[_Iterable[_Union[Log, _Mapping]]] = ..., notes: _Optional[str] = ..., rating: _Optional[float] = ..., wine_style: _Optional[_Union[WineStyleType, str]] = ...) -> None: ...
 
 class MashAcidAddition(_message.Message):
     __slots__ = ("id", "acid", "amount", "target_ph", "from_ph", "basis", "volume", "confirmed")
