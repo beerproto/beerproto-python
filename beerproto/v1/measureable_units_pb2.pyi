@@ -64,6 +64,12 @@ class AcidityUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ACIDITY_UNIT_UNSPECIFIED: _ClassVar[AcidityUnit]
     ACIDITY_UNIT_PH: _ClassVar[AcidityUnit]
 
+class TitratableAcidityUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    TITRATABLE_ACIDITY_UNIT_UNSPECIFIED: _ClassVar[TitratableAcidityUnit]
+    TITRATABLE_ACIDITY_UNIT_G_PER_L_TARTARIC: _ClassVar[TitratableAcidityUnit]
+    TITRATABLE_ACIDITY_UNIT_G_PER_L_MALIC: _ClassVar[TitratableAcidityUnit]
+
 class TimeUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     TIME_UNIT_UNSPECIFIED: _ClassVar[TimeUnit]
@@ -236,6 +242,9 @@ TEMPERATURE_UNIT_C: TemperatureUnit
 TEMPERATURE_UNIT_F: TemperatureUnit
 ACIDITY_UNIT_UNSPECIFIED: AcidityUnit
 ACIDITY_UNIT_PH: AcidityUnit
+TITRATABLE_ACIDITY_UNIT_UNSPECIFIED: TitratableAcidityUnit
+TITRATABLE_ACIDITY_UNIT_G_PER_L_TARTARIC: TitratableAcidityUnit
+TITRATABLE_ACIDITY_UNIT_G_PER_L_MALIC: TitratableAcidityUnit
 TIME_UNIT_UNSPECIFIED: TimeUnit
 TIME_UNIT_SEC: TimeUnit
 TIME_UNIT_MIN: TimeUnit
@@ -375,6 +384,14 @@ class AcidityType(_message.Message):
     value: float
     unit: AcidityUnit
     def __init__(self, value: _Optional[float] = ..., unit: _Optional[_Union[AcidityUnit, str]] = ...) -> None: ...
+
+class TitratableAcidityType(_message.Message):
+    __slots__ = ("value", "unit")
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    UNIT_FIELD_NUMBER: _ClassVar[int]
+    value: float
+    unit: TitratableAcidityUnit
+    def __init__(self, value: _Optional[float] = ..., unit: _Optional[_Union[TitratableAcidityUnit, str]] = ...) -> None: ...
 
 class TimeType(_message.Message):
     __slots__ = ("value", "unit")
