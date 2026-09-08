@@ -25,6 +25,7 @@ class VolumeUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     VOLUME_UNIT_IQT: _ClassVar[VolumeUnit]
     VOLUME_UNIT_IGAL: _ClassVar[VolumeUnit]
     VOLUME_UNIT_IBBL: _ClassVar[VolumeUnit]
+    VOLUME_UNIT_HL: _ClassVar[VolumeUnit]
 
 class MassUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -34,6 +35,9 @@ class MassUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     MASS_UNIT_KG: _ClassVar[MassUnit]
     MASS_UNIT_LB: _ClassVar[MassUnit]
     MASS_UNIT_OZ: _ClassVar[MassUnit]
+    MASS_UNIT_TONNE: _ClassVar[MassUnit]
+    MASS_UNIT_SHORT_TON: _ClassVar[MassUnit]
+    MASS_UNIT_LONG_TON: _ClassVar[MassUnit]
 
 class CellCountUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -222,12 +226,16 @@ VOLUME_UNIT_IPT: VolumeUnit
 VOLUME_UNIT_IQT: VolumeUnit
 VOLUME_UNIT_IGAL: VolumeUnit
 VOLUME_UNIT_IBBL: VolumeUnit
+VOLUME_UNIT_HL: VolumeUnit
 MASS_UNIT_UNSPECIFIED: MassUnit
 MASS_UNIT_MG: MassUnit
 MASS_UNIT_G: MassUnit
 MASS_UNIT_KG: MassUnit
 MASS_UNIT_LB: MassUnit
 MASS_UNIT_OZ: MassUnit
+MASS_UNIT_TONNE: MassUnit
+MASS_UNIT_SHORT_TON: MassUnit
+MASS_UNIT_LONG_TON: MassUnit
 CELL_COUNT_UNIT_UNSPECIFIED: CellCountUnit
 CELL_COUNT_UNIT_CELLS: CellCountUnit
 CELL_COUNT_UNIT_MILLION: CellCountUnit
