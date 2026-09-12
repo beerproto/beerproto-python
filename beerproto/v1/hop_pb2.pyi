@@ -156,11 +156,15 @@ class OilContentType(_message.Message):
     def __init__(self, polyphenols: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., total_oil_ml_per_100g: _Optional[float] = ..., farnesene: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., limonene: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., nerol: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., geraniol: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., b_pinene: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., linalool: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., caryophyllene: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., cohumulone: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., xanthohumol: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., humulene: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., myrcene: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., pinene: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ...) -> None: ...
 
 class HopInventoryType(_message.Message):
-    __slots__ = ("mass", "volume", "best_before")
+    __slots__ = ("mass", "volume", "best_before", "alpha_acid", "percent_lost")
     MASS_FIELD_NUMBER: _ClassVar[int]
     VOLUME_FIELD_NUMBER: _ClassVar[int]
     BEST_BEFORE_FIELD_NUMBER: _ClassVar[int]
+    ALPHA_ACID_FIELD_NUMBER: _ClassVar[int]
+    PERCENT_LOST_FIELD_NUMBER: _ClassVar[int]
     mass: _measureable_units_pb2.MassType
     volume: _measureable_units_pb2.VolumeType
     best_before: _timestamp_pb2.Timestamp
-    def __init__(self, mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., best_before: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    alpha_acid: _measureable_units_pb2.PercentType
+    percent_lost: _measureable_units_pb2.PercentType
+    def __init__(self, mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., best_before: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., alpha_acid: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., percent_lost: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ...) -> None: ...
