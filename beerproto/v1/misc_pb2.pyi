@@ -4,10 +4,11 @@ from beerproto.v1 import measureable_units_pb2 as _measureable_units_pb2
 from beerproto.v1 import timing_pb2 as _timing_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from buf.validate import validate_pb2 as _validate_pb2
+from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
 from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
@@ -74,13 +75,27 @@ class MiscellaneousAdditionType(_message.Message):
     def __init__(self, base: _Optional[_Union[MiscellaneousBase, _Mapping]] = ..., id: _Optional[str] = ..., timing: _Optional[_Union[_timing_pb2.TimingType, _Mapping]] = ..., mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., unit: _Optional[_Union[_measureable_units_pb2.UnitType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ...) -> None: ...
 
 class MiscellaneousInventoryType(_message.Message):
-    __slots__ = ("mass", "unit", "volume", "best_before")
+    __slots__ = ("lots",)
+    LOTS_FIELD_NUMBER: _ClassVar[int]
+    lots: _containers.RepeatedCompositeFieldContainer[MiscellaneousLotType]
+    def __init__(self, lots: _Optional[_Iterable[_Union[MiscellaneousLotType, _Mapping]]] = ...) -> None: ...
+
+class MiscellaneousLotType(_message.Message):
+    __slots__ = ("id", "lot_code", "received_on", "note", "mass", "unit", "volume", "best_before")
+    ID_FIELD_NUMBER: _ClassVar[int]
+    LOT_CODE_FIELD_NUMBER: _ClassVar[int]
+    RECEIVED_ON_FIELD_NUMBER: _ClassVar[int]
+    NOTE_FIELD_NUMBER: _ClassVar[int]
     MASS_FIELD_NUMBER: _ClassVar[int]
     UNIT_FIELD_NUMBER: _ClassVar[int]
     VOLUME_FIELD_NUMBER: _ClassVar[int]
     BEST_BEFORE_FIELD_NUMBER: _ClassVar[int]
+    id: str
+    lot_code: str
+    received_on: _timestamp_pb2.Timestamp
+    note: str
     mass: _measureable_units_pb2.MassType
     unit: _measureable_units_pb2.UnitType
     volume: _measureable_units_pb2.VolumeType
     best_before: _timestamp_pb2.Timestamp
-    def __init__(self, mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., unit: _Optional[_Union[_measureable_units_pb2.UnitType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., best_before: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., lot_code: _Optional[str] = ..., received_on: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., note: _Optional[str] = ..., mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., unit: _Optional[_Union[_measureable_units_pb2.UnitType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., best_before: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

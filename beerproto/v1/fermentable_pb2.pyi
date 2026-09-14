@@ -4,10 +4,11 @@ from beerproto.v1 import measureable_units_pb2 as _measureable_units_pb2
 from beerproto.v1 import timing_pb2 as _timing_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from buf.validate import validate_pb2 as _validate_pb2
+from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
 from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
@@ -171,17 +172,31 @@ class YieldType(_message.Message):
     def __init__(self, fine_grind: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., coarse_grind: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., fine_coarse_difference: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., potential: _Optional[_Union[_measureable_units_pb2.GravityType, _Mapping]] = ...) -> None: ...
 
 class FermentableInventoryType(_message.Message):
-    __slots__ = ("mass", "volume", "best_before", "lot_potential", "crush", "moisture")
+    __slots__ = ("lots",)
+    LOTS_FIELD_NUMBER: _ClassVar[int]
+    lots: _containers.RepeatedCompositeFieldContainer[FermentableLotType]
+    def __init__(self, lots: _Optional[_Iterable[_Union[FermentableLotType, _Mapping]]] = ...) -> None: ...
+
+class FermentableLotType(_message.Message):
+    __slots__ = ("id", "lot_code", "received_on", "note", "mass", "volume", "best_before", "lot_potential", "crush", "moisture")
+    ID_FIELD_NUMBER: _ClassVar[int]
+    LOT_CODE_FIELD_NUMBER: _ClassVar[int]
+    RECEIVED_ON_FIELD_NUMBER: _ClassVar[int]
+    NOTE_FIELD_NUMBER: _ClassVar[int]
     MASS_FIELD_NUMBER: _ClassVar[int]
     VOLUME_FIELD_NUMBER: _ClassVar[int]
     BEST_BEFORE_FIELD_NUMBER: _ClassVar[int]
     LOT_POTENTIAL_FIELD_NUMBER: _ClassVar[int]
     CRUSH_FIELD_NUMBER: _ClassVar[int]
     MOISTURE_FIELD_NUMBER: _ClassVar[int]
+    id: str
+    lot_code: str
+    received_on: _timestamp_pb2.Timestamp
+    note: str
     mass: _measureable_units_pb2.MassType
     volume: _measureable_units_pb2.VolumeType
     best_before: _timestamp_pb2.Timestamp
     lot_potential: _measureable_units_pb2.GravityType
     crush: GrainCrush
     moisture: _measureable_units_pb2.PercentType
-    def __init__(self, mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., best_before: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., lot_potential: _Optional[_Union[_measureable_units_pb2.GravityType, _Mapping]] = ..., crush: _Optional[_Union[GrainCrush, str]] = ..., moisture: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., lot_code: _Optional[str] = ..., received_on: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., note: _Optional[str] = ..., mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., best_before: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., lot_potential: _Optional[_Union[_measureable_units_pb2.GravityType, _Mapping]] = ..., crush: _Optional[_Union[GrainCrush, str]] = ..., moisture: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ...) -> None: ...
