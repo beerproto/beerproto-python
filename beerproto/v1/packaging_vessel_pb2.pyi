@@ -1,6 +1,9 @@
+import datetime
+
 from beerproto.v1 import measureable_units_pb2 as _measureable_units_pb2
 from beerproto.v1 import packaging_graphic_pb2 as _packaging_graphic_pb2
 from buf.validate import validate_pb2 as _validate_pb2
+from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
@@ -59,7 +62,7 @@ class PackagingVesselBase(_message.Message):
     def __init__(self, name: _Optional[str] = ..., type: _Optional[_Union[PackagingVesselUnit, str]] = ..., vessel_volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., vessel_quantity: _Optional[int] = ..., description: _Optional[str] = ..., graphics: _Optional[_Iterable[_Union[_packaging_graphic_pb2.PackagingGraphicType, _Mapping]]] = ...) -> None: ...
 
 class PackagingVesselType(_message.Message):
-    __slots__ = ("base", "id", "package_date", "step_time", "start_gravity", "end_gravity", "start_ph", "end_ph", "start_temperature", "end_temperature", "target_carbonation", "notes", "carbonation_step")
+    __slots__ = ("base", "id", "package_date", "step_time", "start_gravity", "end_gravity", "start_ph", "end_ph", "start_temperature", "end_temperature", "target_carbonation", "notes", "carbonation_step", "best_before")
     BASE_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     PACKAGE_DATE_FIELD_NUMBER: _ClassVar[int]
@@ -73,6 +76,7 @@ class PackagingVesselType(_message.Message):
     TARGET_CARBONATION_FIELD_NUMBER: _ClassVar[int]
     NOTES_FIELD_NUMBER: _ClassVar[int]
     CARBONATION_STEP_FIELD_NUMBER: _ClassVar[int]
+    BEST_BEFORE_FIELD_NUMBER: _ClassVar[int]
     base: PackagingVesselBase
     id: str
     package_date: str
@@ -86,4 +90,5 @@ class PackagingVesselType(_message.Message):
     target_carbonation: _measureable_units_pb2.CarbonationType
     notes: str
     carbonation_step: CarbonationStep
-    def __init__(self, base: _Optional[_Union[PackagingVesselBase, _Mapping]] = ..., id: _Optional[str] = ..., package_date: _Optional[str] = ..., step_time: _Optional[_Union[_measureable_units_pb2.TimeType, _Mapping]] = ..., start_gravity: _Optional[_Union[_measureable_units_pb2.GravityType, _Mapping]] = ..., end_gravity: _Optional[_Union[_measureable_units_pb2.GravityType, _Mapping]] = ..., start_ph: _Optional[_Union[_measureable_units_pb2.AcidityType, _Mapping]] = ..., end_ph: _Optional[_Union[_measureable_units_pb2.AcidityType, _Mapping]] = ..., start_temperature: _Optional[_Union[_measureable_units_pb2.TemperatureType, _Mapping]] = ..., end_temperature: _Optional[_Union[_measureable_units_pb2.TemperatureType, _Mapping]] = ..., target_carbonation: _Optional[_Union[_measureable_units_pb2.CarbonationType, _Mapping]] = ..., notes: _Optional[str] = ..., carbonation_step: _Optional[_Union[CarbonationStep, str]] = ...) -> None: ...
+    best_before: _timestamp_pb2.Timestamp
+    def __init__(self, base: _Optional[_Union[PackagingVesselBase, _Mapping]] = ..., id: _Optional[str] = ..., package_date: _Optional[str] = ..., step_time: _Optional[_Union[_measureable_units_pb2.TimeType, _Mapping]] = ..., start_gravity: _Optional[_Union[_measureable_units_pb2.GravityType, _Mapping]] = ..., end_gravity: _Optional[_Union[_measureable_units_pb2.GravityType, _Mapping]] = ..., start_ph: _Optional[_Union[_measureable_units_pb2.AcidityType, _Mapping]] = ..., end_ph: _Optional[_Union[_measureable_units_pb2.AcidityType, _Mapping]] = ..., start_temperature: _Optional[_Union[_measureable_units_pb2.TemperatureType, _Mapping]] = ..., end_temperature: _Optional[_Union[_measureable_units_pb2.TemperatureType, _Mapping]] = ..., target_carbonation: _Optional[_Union[_measureable_units_pb2.CarbonationType, _Mapping]] = ..., notes: _Optional[str] = ..., carbonation_step: _Optional[_Union[CarbonationStep, str]] = ..., best_before: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
