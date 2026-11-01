@@ -178,7 +178,7 @@ class FermentableInventoryType(_message.Message):
     def __init__(self, lots: _Optional[_Iterable[_Union[FermentableLotType, _Mapping]]] = ...) -> None: ...
 
 class FermentableLotType(_message.Message):
-    __slots__ = ("id", "lot_code", "received_on", "note", "mass", "volume", "best_before", "lot_potential", "crush", "moisture")
+    __slots__ = ("id", "lot_code", "received_on", "note", "mass", "volume", "best_before", "lot_potential", "crush", "moisture", "color")
     ID_FIELD_NUMBER: _ClassVar[int]
     LOT_CODE_FIELD_NUMBER: _ClassVar[int]
     RECEIVED_ON_FIELD_NUMBER: _ClassVar[int]
@@ -189,6 +189,7 @@ class FermentableLotType(_message.Message):
     LOT_POTENTIAL_FIELD_NUMBER: _ClassVar[int]
     CRUSH_FIELD_NUMBER: _ClassVar[int]
     MOISTURE_FIELD_NUMBER: _ClassVar[int]
+    COLOR_FIELD_NUMBER: _ClassVar[int]
     id: str
     lot_code: str
     received_on: _timestamp_pb2.Timestamp
@@ -199,4 +200,5 @@ class FermentableLotType(_message.Message):
     lot_potential: _measureable_units_pb2.GravityType
     crush: GrainCrush
     moisture: _measureable_units_pb2.PercentType
-    def __init__(self, id: _Optional[str] = ..., lot_code: _Optional[str] = ..., received_on: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., note: _Optional[str] = ..., mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., best_before: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., lot_potential: _Optional[_Union[_measureable_units_pb2.GravityType, _Mapping]] = ..., crush: _Optional[_Union[GrainCrush, str]] = ..., moisture: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ...) -> None: ...
+    color: _measureable_units_pb2.ColorType
+    def __init__(self, id: _Optional[str] = ..., lot_code: _Optional[str] = ..., received_on: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., note: _Optional[str] = ..., mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., best_before: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., lot_potential: _Optional[_Union[_measureable_units_pb2.GravityType, _Mapping]] = ..., crush: _Optional[_Union[GrainCrush, str]] = ..., moisture: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., color: _Optional[_Union[_measureable_units_pb2.ColorType, _Mapping]] = ...) -> None: ...
