@@ -1,0 +1,13 @@
+# The Python generator for beerproto's schema, kept in this repo beside
+# the protobuf runtime in pyproject.toml that its output must agree with.
+#
+# .github/workflows/main.yml runs this from the beerproto checkout in ./proto,
+# so `out` is relative to that directory.
+version: v2
+managed:
+  enabled: true
+plugins:
+  - remote: buf.build/protocolbuffers/python
+    out: gen
+  - remote: buf.build/protocolbuffers/pyi
+    out: gen
