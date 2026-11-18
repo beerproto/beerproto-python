@@ -210,6 +210,19 @@ class EnzymeType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ENZYME_TYPE_ALPHA_AMYLASE: _ClassVar[EnzymeType]
     ENZYME_TYPE_BETA_AMYLASE: _ClassVar[EnzymeType]
     ENZYME_TYPE_PROTEASE: _ClassVar[EnzymeType]
+
+class PriceUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    PRICE_UNIT_UNSPECIFIED: _ClassVar[PriceUnit]
+    PRICE_UNIT_PER_G: _ClassVar[PriceUnit]
+    PRICE_UNIT_PER_KG: _ClassVar[PriceUnit]
+    PRICE_UNIT_PER_OZ: _ClassVar[PriceUnit]
+    PRICE_UNIT_PER_LB: _ClassVar[PriceUnit]
+    PRICE_UNIT_PER_ML: _ClassVar[PriceUnit]
+    PRICE_UNIT_PER_L: _ClassVar[PriceUnit]
+    PRICE_UNIT_PER_US_GAL: _ClassVar[PriceUnit]
+    PRICE_UNIT_PER_IMP_GAL: _ClassVar[PriceUnit]
+    PRICE_UNIT_PER_EACH: _ClassVar[PriceUnit]
 VOLUME_UNIT_UNSPECIFIED: VolumeUnit
 VOLUME_UNIT_ML: VolumeUnit
 VOLUME_UNIT_L: VolumeUnit
@@ -336,6 +349,16 @@ ENZYME_TYPE_UNSPECIFIED: EnzymeType
 ENZYME_TYPE_ALPHA_AMYLASE: EnzymeType
 ENZYME_TYPE_BETA_AMYLASE: EnzymeType
 ENZYME_TYPE_PROTEASE: EnzymeType
+PRICE_UNIT_UNSPECIFIED: PriceUnit
+PRICE_UNIT_PER_G: PriceUnit
+PRICE_UNIT_PER_KG: PriceUnit
+PRICE_UNIT_PER_OZ: PriceUnit
+PRICE_UNIT_PER_LB: PriceUnit
+PRICE_UNIT_PER_ML: PriceUnit
+PRICE_UNIT_PER_L: PriceUnit
+PRICE_UNIT_PER_US_GAL: PriceUnit
+PRICE_UNIT_PER_IMP_GAL: PriceUnit
+PRICE_UNIT_PER_EACH: PriceUnit
 
 class VolumeType(_message.Message):
     __slots__ = ("value", "unit")
@@ -640,3 +663,13 @@ class EnzymeActivity(_message.Message):
     kind: EnzymeType
     activity: EnzymeActivityType
     def __init__(self, kind: _Optional[_Union[EnzymeType, str]] = ..., activity: _Optional[_Union[EnzymeActivityType, _Mapping]] = ...) -> None: ...
+
+class PriceType(_message.Message):
+    __slots__ = ("value", "unit", "currency")
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    UNIT_FIELD_NUMBER: _ClassVar[int]
+    CURRENCY_FIELD_NUMBER: _ClassVar[int]
+    value: float
+    unit: PriceUnit
+    currency: str
+    def __init__(self, value: _Optional[float] = ..., unit: _Optional[_Union[PriceUnit, str]] = ..., currency: _Optional[str] = ...) -> None: ...

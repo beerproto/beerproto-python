@@ -135,7 +135,7 @@ class CultureInformation(_message.Message):
     def __init__(self, base: _Optional[_Union[CultureBase, _Mapping]] = ..., id: _Optional[str] = ..., temperature_range: _Optional[_Union[_measureable_units_pb2.TemperatureRangeType, _Mapping]] = ..., notes: _Optional[str] = ..., best_for: _Optional[str] = ..., inventory: _Optional[_Union[CultureInventoryType, _Mapping]] = ..., alcohol_tolerance: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., glucoamylase: _Optional[bool] = ..., type: _Optional[_Union[CultureBaseType, str]] = ..., flocculation: _Optional[_Union[QualitativeRangeUnit, str]] = ..., attenuation_range: _Optional[_Union[_measureable_units_pb2.PercentRangeType, _Mapping]] = ..., max_reuse: _Optional[int] = ..., pof: _Optional[bool] = ..., zymocide: _Optional[_Union[Zymocide, _Mapping]] = ...) -> None: ...
 
 class CultureAdditionType(_message.Message):
-    __slots__ = ("base", "id", "cell_count_billions", "times_cultured", "type", "attenuation", "timing", "mass", "unit", "volume")
+    __slots__ = ("base", "id", "cell_count_billions", "times_cultured", "type", "attenuation", "timing", "mass", "unit", "volume", "unit_price")
     BASE_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     CELL_COUNT_BILLIONS_FIELD_NUMBER: _ClassVar[int]
@@ -146,6 +146,7 @@ class CultureAdditionType(_message.Message):
     MASS_FIELD_NUMBER: _ClassVar[int]
     UNIT_FIELD_NUMBER: _ClassVar[int]
     VOLUME_FIELD_NUMBER: _ClassVar[int]
+    UNIT_PRICE_FIELD_NUMBER: _ClassVar[int]
     base: CultureBase
     id: str
     cell_count_billions: int
@@ -156,7 +157,8 @@ class CultureAdditionType(_message.Message):
     mass: _measureable_units_pb2.MassType
     unit: _measureable_units_pb2.UnitType
     volume: _measureable_units_pb2.VolumeType
-    def __init__(self, base: _Optional[_Union[CultureBase, _Mapping]] = ..., id: _Optional[str] = ..., cell_count_billions: _Optional[int] = ..., times_cultured: _Optional[int] = ..., type: _Optional[_Union[CultureBaseType, str]] = ..., attenuation: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., timing: _Optional[_Union[_timing_pb2.TimingType, _Mapping]] = ..., mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., unit: _Optional[_Union[_measureable_units_pb2.UnitType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ...) -> None: ...
+    unit_price: _measureable_units_pb2.PriceType
+    def __init__(self, base: _Optional[_Union[CultureBase, _Mapping]] = ..., id: _Optional[str] = ..., cell_count_billions: _Optional[int] = ..., times_cultured: _Optional[int] = ..., type: _Optional[_Union[CultureBaseType, str]] = ..., attenuation: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., timing: _Optional[_Union[_timing_pb2.TimingType, _Mapping]] = ..., mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., unit: _Optional[_Union[_measureable_units_pb2.UnitType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., unit_price: _Optional[_Union[_measureable_units_pb2.PriceType, _Mapping]] = ...) -> None: ...
 
 class CultureInventoryType(_message.Message):
     __slots__ = ("lots",)
@@ -165,7 +167,7 @@ class CultureInventoryType(_message.Message):
     def __init__(self, lots: _Optional[_Iterable[_Union[CultureLotType, _Mapping]]] = ...) -> None: ...
 
 class CultureLotType(_message.Message):
-    __slots__ = ("id", "lot_code", "received_on", "note", "dry", "liquid", "liquid_packs", "slant", "culture", "manufacture_date", "generation", "best_before")
+    __slots__ = ("id", "lot_code", "received_on", "note", "dry", "liquid", "liquid_packs", "slant", "culture", "manufacture_date", "generation", "best_before", "unit_price")
     ID_FIELD_NUMBER: _ClassVar[int]
     LOT_CODE_FIELD_NUMBER: _ClassVar[int]
     RECEIVED_ON_FIELD_NUMBER: _ClassVar[int]
@@ -178,6 +180,7 @@ class CultureLotType(_message.Message):
     MANUFACTURE_DATE_FIELD_NUMBER: _ClassVar[int]
     GENERATION_FIELD_NUMBER: _ClassVar[int]
     BEST_BEFORE_FIELD_NUMBER: _ClassVar[int]
+    UNIT_PRICE_FIELD_NUMBER: _ClassVar[int]
     id: str
     lot_code: str
     received_on: _timestamp_pb2.Timestamp
@@ -190,7 +193,8 @@ class CultureLotType(_message.Message):
     manufacture_date: str
     generation: int
     best_before: _timestamp_pb2.Timestamp
-    def __init__(self, id: _Optional[str] = ..., lot_code: _Optional[str] = ..., received_on: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., note: _Optional[str] = ..., dry: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., liquid: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., liquid_packs: _Optional[_Union[_measureable_units_pb2.UnitType, _Mapping]] = ..., slant: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., culture: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., manufacture_date: _Optional[str] = ..., generation: _Optional[int] = ..., best_before: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    unit_price: _measureable_units_pb2.PriceType
+    def __init__(self, id: _Optional[str] = ..., lot_code: _Optional[str] = ..., received_on: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., note: _Optional[str] = ..., dry: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., liquid: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., liquid_packs: _Optional[_Union[_measureable_units_pb2.UnitType, _Mapping]] = ..., slant: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., culture: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., manufacture_date: _Optional[str] = ..., generation: _Optional[int] = ..., best_before: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., unit_price: _Optional[_Union[_measureable_units_pb2.PriceType, _Mapping]] = ...) -> None: ...
 
 class Zymocide(_message.Message):
     __slots__ = ("no1", "no2", "no28", "klus", "neutral")

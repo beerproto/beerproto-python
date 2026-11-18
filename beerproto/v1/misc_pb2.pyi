@@ -59,20 +59,22 @@ class MiscellaneousType(_message.Message):
     def __init__(self, base: _Optional[_Union[MiscellaneousBase, _Mapping]] = ..., id: _Optional[str] = ..., use_for: _Optional[str] = ..., notes: _Optional[str] = ..., inventory: _Optional[_Union[MiscellaneousInventoryType, _Mapping]] = ...) -> None: ...
 
 class MiscellaneousAdditionType(_message.Message):
-    __slots__ = ("base", "id", "timing", "mass", "unit", "volume")
+    __slots__ = ("base", "id", "timing", "mass", "unit", "volume", "unit_price")
     BASE_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     TIMING_FIELD_NUMBER: _ClassVar[int]
     MASS_FIELD_NUMBER: _ClassVar[int]
     UNIT_FIELD_NUMBER: _ClassVar[int]
     VOLUME_FIELD_NUMBER: _ClassVar[int]
+    UNIT_PRICE_FIELD_NUMBER: _ClassVar[int]
     base: MiscellaneousBase
     id: str
     timing: _timing_pb2.TimingType
     mass: _measureable_units_pb2.MassType
     unit: _measureable_units_pb2.UnitType
     volume: _measureable_units_pb2.VolumeType
-    def __init__(self, base: _Optional[_Union[MiscellaneousBase, _Mapping]] = ..., id: _Optional[str] = ..., timing: _Optional[_Union[_timing_pb2.TimingType, _Mapping]] = ..., mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., unit: _Optional[_Union[_measureable_units_pb2.UnitType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ...) -> None: ...
+    unit_price: _measureable_units_pb2.PriceType
+    def __init__(self, base: _Optional[_Union[MiscellaneousBase, _Mapping]] = ..., id: _Optional[str] = ..., timing: _Optional[_Union[_timing_pb2.TimingType, _Mapping]] = ..., mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., unit: _Optional[_Union[_measureable_units_pb2.UnitType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., unit_price: _Optional[_Union[_measureable_units_pb2.PriceType, _Mapping]] = ...) -> None: ...
 
 class MiscellaneousInventoryType(_message.Message):
     __slots__ = ("lots",)
@@ -81,7 +83,7 @@ class MiscellaneousInventoryType(_message.Message):
     def __init__(self, lots: _Optional[_Iterable[_Union[MiscellaneousLotType, _Mapping]]] = ...) -> None: ...
 
 class MiscellaneousLotType(_message.Message):
-    __slots__ = ("id", "lot_code", "received_on", "note", "mass", "unit", "volume", "best_before")
+    __slots__ = ("id", "lot_code", "received_on", "note", "mass", "unit", "volume", "best_before", "unit_price")
     ID_FIELD_NUMBER: _ClassVar[int]
     LOT_CODE_FIELD_NUMBER: _ClassVar[int]
     RECEIVED_ON_FIELD_NUMBER: _ClassVar[int]
@@ -90,6 +92,7 @@ class MiscellaneousLotType(_message.Message):
     UNIT_FIELD_NUMBER: _ClassVar[int]
     VOLUME_FIELD_NUMBER: _ClassVar[int]
     BEST_BEFORE_FIELD_NUMBER: _ClassVar[int]
+    UNIT_PRICE_FIELD_NUMBER: _ClassVar[int]
     id: str
     lot_code: str
     received_on: _timestamp_pb2.Timestamp
@@ -98,4 +101,5 @@ class MiscellaneousLotType(_message.Message):
     unit: _measureable_units_pb2.UnitType
     volume: _measureable_units_pb2.VolumeType
     best_before: _timestamp_pb2.Timestamp
-    def __init__(self, id: _Optional[str] = ..., lot_code: _Optional[str] = ..., received_on: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., note: _Optional[str] = ..., mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., unit: _Optional[_Union[_measureable_units_pb2.UnitType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., best_before: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    unit_price: _measureable_units_pb2.PriceType
+    def __init__(self, id: _Optional[str] = ..., lot_code: _Optional[str] = ..., received_on: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., note: _Optional[str] = ..., mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., unit: _Optional[_Union[_measureable_units_pb2.UnitType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., best_before: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., unit_price: _Optional[_Union[_measureable_units_pb2.PriceType, _Mapping]] = ...) -> None: ...

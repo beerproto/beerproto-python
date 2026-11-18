@@ -146,18 +146,20 @@ class FermentableType(_message.Message):
     def __init__(self, base: _Optional[_Union[FermentableBase, _Mapping]] = ..., id: _Optional[str] = ..., max_in_batch: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., recommend_mash: _Optional[bool] = ..., protein: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., alpha_amylase: _Optional[_Union[_measureable_units_pb2.EnzymeActivityType, _Mapping]] = ..., diastatic_power: _Optional[_Union[_measureable_units_pb2.DiastaticPowerType, _Mapping]] = ..., moisture: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., inventory: _Optional[_Union[FermentableInventoryType, _Mapping]] = ..., kolbach_index: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., glassy: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., plump: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., half: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., mealy: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., thru: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., friability: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., di_ph: _Optional[_Union[_measureable_units_pb2.AcidityType, _Mapping]] = ..., viscosity: _Optional[_Union[_measureable_units_pb2.ViscosityType, _Mapping]] = ..., dms_p: _Optional[_Union[_measureable_units_pb2.ConcentrationType, _Mapping]] = ..., fan: _Optional[_Union[_measureable_units_pb2.ConcentrationType, _Mapping]] = ..., fermentability: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., beta_glucan: _Optional[_Union[_measureable_units_pb2.ConcentrationType, _Mapping]] = ..., notes: _Optional[str] = ..., buffering_capacity: _Optional[_Union[_measureable_units_pb2.BufferingCapacityType, _Mapping]] = ...) -> None: ...
 
 class FermentableAdditionType(_message.Message):
-    __slots__ = ("base", "id", "timing", "mass", "volume")
+    __slots__ = ("base", "id", "timing", "mass", "volume", "unit_price")
     BASE_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     TIMING_FIELD_NUMBER: _ClassVar[int]
     MASS_FIELD_NUMBER: _ClassVar[int]
     VOLUME_FIELD_NUMBER: _ClassVar[int]
+    UNIT_PRICE_FIELD_NUMBER: _ClassVar[int]
     base: FermentableBase
     id: str
     timing: _timing_pb2.TimingType
     mass: _measureable_units_pb2.MassType
     volume: _measureable_units_pb2.VolumeType
-    def __init__(self, base: _Optional[_Union[FermentableBase, _Mapping]] = ..., id: _Optional[str] = ..., timing: _Optional[_Union[_timing_pb2.TimingType, _Mapping]] = ..., mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ...) -> None: ...
+    unit_price: _measureable_units_pb2.PriceType
+    def __init__(self, base: _Optional[_Union[FermentableBase, _Mapping]] = ..., id: _Optional[str] = ..., timing: _Optional[_Union[_timing_pb2.TimingType, _Mapping]] = ..., mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., unit_price: _Optional[_Union[_measureable_units_pb2.PriceType, _Mapping]] = ...) -> None: ...
 
 class YieldType(_message.Message):
     __slots__ = ("fine_grind", "coarse_grind", "fine_coarse_difference", "potential")
@@ -178,7 +180,7 @@ class FermentableInventoryType(_message.Message):
     def __init__(self, lots: _Optional[_Iterable[_Union[FermentableLotType, _Mapping]]] = ...) -> None: ...
 
 class FermentableLotType(_message.Message):
-    __slots__ = ("id", "lot_code", "received_on", "note", "mass", "volume", "best_before", "lot_potential", "crush", "moisture", "color")
+    __slots__ = ("id", "lot_code", "received_on", "note", "mass", "volume", "best_before", "lot_potential", "crush", "moisture", "color", "unit_price")
     ID_FIELD_NUMBER: _ClassVar[int]
     LOT_CODE_FIELD_NUMBER: _ClassVar[int]
     RECEIVED_ON_FIELD_NUMBER: _ClassVar[int]
@@ -190,6 +192,7 @@ class FermentableLotType(_message.Message):
     CRUSH_FIELD_NUMBER: _ClassVar[int]
     MOISTURE_FIELD_NUMBER: _ClassVar[int]
     COLOR_FIELD_NUMBER: _ClassVar[int]
+    UNIT_PRICE_FIELD_NUMBER: _ClassVar[int]
     id: str
     lot_code: str
     received_on: _timestamp_pb2.Timestamp
@@ -201,4 +204,5 @@ class FermentableLotType(_message.Message):
     crush: GrainCrush
     moisture: _measureable_units_pb2.PercentType
     color: _measureable_units_pb2.ColorType
-    def __init__(self, id: _Optional[str] = ..., lot_code: _Optional[str] = ..., received_on: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., note: _Optional[str] = ..., mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., best_before: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., lot_potential: _Optional[_Union[_measureable_units_pb2.GravityType, _Mapping]] = ..., crush: _Optional[_Union[GrainCrush, str]] = ..., moisture: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., color: _Optional[_Union[_measureable_units_pb2.ColorType, _Mapping]] = ...) -> None: ...
+    unit_price: _measureable_units_pb2.PriceType
+    def __init__(self, id: _Optional[str] = ..., lot_code: _Optional[str] = ..., received_on: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., note: _Optional[str] = ..., mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., best_before: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., lot_potential: _Optional[_Union[_measureable_units_pb2.GravityType, _Mapping]] = ..., crush: _Optional[_Union[GrainCrush, str]] = ..., moisture: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., color: _Optional[_Union[_measureable_units_pb2.ColorType, _Mapping]] = ..., unit_price: _Optional[_Union[_measureable_units_pb2.PriceType, _Mapping]] = ...) -> None: ...

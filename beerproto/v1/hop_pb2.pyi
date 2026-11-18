@@ -105,18 +105,20 @@ class VarietyInformation(_message.Message):
     def __init__(self, base: _Optional[_Union[HopVarietyBase, _Mapping]] = ..., id: _Optional[str] = ..., inventory: _Optional[_Union[HopInventoryType, _Mapping]] = ..., type: _Optional[_Union[VarietyInformationType, str]] = ..., oil_content: _Optional[_Union[OilContentType, _Mapping]] = ..., percent_lost: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., substitutes: _Optional[str] = ..., notes: _Optional[str] = ...) -> None: ...
 
 class HopAdditionType(_message.Message):
-    __slots__ = ("base", "id", "timing", "mass", "volume")
+    __slots__ = ("base", "id", "timing", "mass", "volume", "unit_price")
     BASE_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     TIMING_FIELD_NUMBER: _ClassVar[int]
     MASS_FIELD_NUMBER: _ClassVar[int]
     VOLUME_FIELD_NUMBER: _ClassVar[int]
+    UNIT_PRICE_FIELD_NUMBER: _ClassVar[int]
     base: HopVarietyBase
     id: str
     timing: _timing_pb2.TimingType
     mass: _measureable_units_pb2.MassType
     volume: _measureable_units_pb2.VolumeType
-    def __init__(self, base: _Optional[_Union[HopVarietyBase, _Mapping]] = ..., id: _Optional[str] = ..., timing: _Optional[_Union[_timing_pb2.TimingType, _Mapping]] = ..., mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ...) -> None: ...
+    unit_price: _measureable_units_pb2.PriceType
+    def __init__(self, base: _Optional[_Union[HopVarietyBase, _Mapping]] = ..., id: _Optional[str] = ..., timing: _Optional[_Union[_timing_pb2.TimingType, _Mapping]] = ..., mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., unit_price: _Optional[_Union[_measureable_units_pb2.PriceType, _Mapping]] = ...) -> None: ...
 
 class IBUEstimateType(_message.Message):
     __slots__ = ("method",)
@@ -163,7 +165,7 @@ class HopInventoryType(_message.Message):
     def __init__(self, lots: _Optional[_Iterable[_Union[HopLotType, _Mapping]]] = ...) -> None: ...
 
 class HopLotType(_message.Message):
-    __slots__ = ("id", "lot_code", "received_on", "note", "mass", "volume", "best_before", "alpha_acid", "percent_lost")
+    __slots__ = ("id", "lot_code", "received_on", "note", "mass", "volume", "best_before", "alpha_acid", "percent_lost", "unit_price")
     ID_FIELD_NUMBER: _ClassVar[int]
     LOT_CODE_FIELD_NUMBER: _ClassVar[int]
     RECEIVED_ON_FIELD_NUMBER: _ClassVar[int]
@@ -173,6 +175,7 @@ class HopLotType(_message.Message):
     BEST_BEFORE_FIELD_NUMBER: _ClassVar[int]
     ALPHA_ACID_FIELD_NUMBER: _ClassVar[int]
     PERCENT_LOST_FIELD_NUMBER: _ClassVar[int]
+    UNIT_PRICE_FIELD_NUMBER: _ClassVar[int]
     id: str
     lot_code: str
     received_on: _timestamp_pb2.Timestamp
@@ -182,4 +185,5 @@ class HopLotType(_message.Message):
     best_before: _timestamp_pb2.Timestamp
     alpha_acid: _measureable_units_pb2.PercentType
     percent_lost: _measureable_units_pb2.PercentType
-    def __init__(self, id: _Optional[str] = ..., lot_code: _Optional[str] = ..., received_on: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., note: _Optional[str] = ..., mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., best_before: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., alpha_acid: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., percent_lost: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ...) -> None: ...
+    unit_price: _measureable_units_pb2.PriceType
+    def __init__(self, id: _Optional[str] = ..., lot_code: _Optional[str] = ..., received_on: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., note: _Optional[str] = ..., mass: _Optional[_Union[_measureable_units_pb2.MassType, _Mapping]] = ..., volume: _Optional[_Union[_measureable_units_pb2.VolumeType, _Mapping]] = ..., best_before: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., alpha_acid: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., percent_lost: _Optional[_Union[_measureable_units_pb2.PercentType, _Mapping]] = ..., unit_price: _Optional[_Union[_measureable_units_pb2.PriceType, _Mapping]] = ...) -> None: ...
